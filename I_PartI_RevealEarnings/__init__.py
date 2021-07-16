@@ -1,6 +1,7 @@
 from otree.api import *
 import csv
 import random
+import os
 
 doc = """
 Your app description
@@ -9,9 +10,10 @@ Your app description
 
 class Constants(BaseConstants):
     name_in_url = 'I_PartI_RevealEarnings'
+    data_path = os.path.join("I_PartI_RevealEarnings", "bluematch.csv")
     players_per_group = None
     num_rounds = 1
-    with open('bluematch.csv', encoding='utf-8') as file:
+    with open(data_path, encoding='utf-8') as file:
         rows = list(csv.DictReader(file))
 
 
