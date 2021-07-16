@@ -1,0 +1,32 @@
+{{ block title }}
+    Part 2: Encryption Task Earnings Information
+{{ endblock }}
+{{ block content }}
+
+    <p>
+        Your token earnings in the encryption task of Part 2 are {{ player.participant.payoff_II }}.
+    </p>
+    {{ if session.config.name == "victim" }}
+        <p>
+            The blue player you were paired with in Part 2 decreased your encryption task bonus payment by {{
+            player.participant.externality_II
+            }} token(s).
+        </p>
+        {{ if player.choice_info }}
+            {{ if player.participant.ext_choice == 1 }}
+                <p>
+                    The blue player <b>chose</b> the encryption task that <b>would detract</b> from your bonus payment.
+                </p>
+            {{ else }}
+                <p>
+                    The blue player <b>chose</b> the encryption task that <b>would not detract</b> from your bonus payment.
+                </p>
+            {{ endif }}
+        {{ endif }}
+    {{ endif }}
+        <div class="row">
+    <div class="col-md-12" align="right">
+        {% next_button %}
+        </div>
+</div>
+{{ endblock }}

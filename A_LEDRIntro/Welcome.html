@@ -1,0 +1,33 @@
+{{ block title }}
+    Welcome
+{{ endblock }}
+
+
+{{ block content }}
+    <p>Welcome!</p>
+<p>Thank you for agreeing to take part in this Prolific study. The study is being run by researchers at the University of East Anglia. Any data which is collected about your participation in this study will be anonymous, and will not be linked to you in any way.
+If you have any concerns at any time during the study, or would like to withdraw from the study, you may contact the lead researcher Deanna Karapetyan, by sending an email to (d.karapetyan @uea.ac.uk).</p>
+<p>Please note that if you withdraw from the study you will not receive payment for your participation. The study you are about to take part in has received approval from the School of Economics Research Ethics Committee at the University of East Anglia. If you would like to make a formal complaint please contact the chair of the Research Ethics Committee, Dr. David Hugh-Jones (d.hugh-jones@uea.ac.uk).</p>
+
+       <p>Before we begin, please enter your Prolific ID.</p>
+
+
+    {{ formfields }}
+  <div class="row">
+    <div class="col-md-12" align="right">
+        {% next_button %}
+        </div>
+</div>
+
+ <footer>
+        <hr/>
+        <div class="text-right">
+            <p class="text-muted font-italic">Laboratory for Economic and Decision Research, University of East Anglia
+                <img src="{% static 'global/uea.png' %}" class="align-content-center ml-3" alt="UEA logo"/>
+            </p>
+        </div>
+    </footer>
+
+
+{{ endblock }}
+

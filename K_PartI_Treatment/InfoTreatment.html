@@ -1,0 +1,20 @@
+{{ block title }}
+    Part 1: Earnings Information
+{{ endblock }}
+{{ block content }}
+
+<p>
+
+        The blue player you were paired with decreased your earnings by <b>{{ player.participant.externality_I }}
+token(s)</b> when exerting effort in the encryption task.
+
+</p>
+
+    {{ formfields }}
+          <div class="row">
+    <div class="col-md-12" align="right">
+        {% next_button %}
+        </div>
+</div>
+
+{{ endblock }}

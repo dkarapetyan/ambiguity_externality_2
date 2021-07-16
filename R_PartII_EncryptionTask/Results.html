@@ -1,0 +1,25 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+
+    {{ if session.config.name == "victim" }}
+        <h3>Part 2: Encryption Task Complete</h3>
+        <br><p>You have completed the encryption task of Part 2, and your token earnings will be provided to you shortly.</br></p>
+    {{ else }}
+        <h3>Part 2: Encryption Task Complete</h3>
+        <br><p>You have completed the encryption task of Part 2, and earned {{ player.participant.tokens_II }} tokens in
+            this task.
+        </p>
+    {{ endif }}
+                 <div class="row">
+    <div class="col-md-12" align="right">
+        {% next_button %}
+        </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block head_title %}
+End
+{% endblock %}
+
+{% block title %}
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+window.location.replace("{{ session.config.completionlink }}")
+</script>
+{% endblock %}
+
+{% block styles %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}

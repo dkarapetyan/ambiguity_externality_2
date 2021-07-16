@@ -1,0 +1,27 @@
+{{ block title }}
+    Part 1: Encryption Task Instructions
+{{ endblock }}
+{{ block content }}
+
+<p>
+
+    <br><b><u>Roles</u></b>
+    <br>If you are a <b>blue player</b>, each word you encrypt correctly will <b>take away 1 token</b> from the earnings of the yellow player you are paired with.</br>
+    <br>If you are a <b>yellow player</b>, your earnings will <b>decrease by 1 token</b> every time the blue player
+    you are paired with correctly encrypts a word. You will not take away any tokens from the blue player for the words
+    you encrypt.</br>
+    <br><b><u>Token Earnings</b></u><br>
+    <br>Each 5-letter word block encrypted correctly will add 2 tokens to your score. All letters within the
+    5-letter word block need to be encoded correctly to earn any tokens for a word.<br>
+    <br>If any letters within the 5-letter word block are encoded incorrectly, you will not earn any tokens for that word.</br>
+    <br><b>You will now have a chance to practice the task for 2 minutes. You will <b><em>not be paid</em></b> any
+    additional payment for the practice</b>.</br>
+</p>
+
+        <div class="row">
+    <div class="col-md-12" align="right">
+        {% next_button %}
+        </div>
+</div>
+
+{{ endblock }}
