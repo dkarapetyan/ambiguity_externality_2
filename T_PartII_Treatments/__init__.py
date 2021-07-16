@@ -1,6 +1,7 @@
 from otree.api import *
 import csv
 import random
+import os
 
 c = Currency
 
@@ -13,10 +14,10 @@ class Constants(BaseConstants):
     name_in_url = 'T_PartII_Treatments'
     players_per_group = None
     num_rounds = 1
-    with open('T_partII_Treatments/bluematch.csv', encoding='utf-8') as file:
+    data_path = os.path.join("I_PartI_RevealEarnings", "bluematch.csv")
+    with open(data_path, encoding='utf-8') as file:
         rows = list(csv.DictReader(file))
-
-
+        
 class Subsession(BaseSubsession):
     pass
 
