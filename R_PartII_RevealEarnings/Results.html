@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+
+    <h4><b>Encryption Task Net Earnings</b></h4>
+    <br><p>Your net earnings are {{ player.participant.payoff_II }} token(s).</p>
+
+
+          <div class="row">
+    <div class="col-md-12" align="right">
+        {% next_button %}
+        </div>
+</div>
+
+{% endblock %}

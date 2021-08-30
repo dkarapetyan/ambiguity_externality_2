@@ -1,5 +1,9 @@
 {{ block title }}
+ {{ if session.config.name == "perp" }}
 Part 1: Encryption Task Survey
+{{else}}
+Encryption Task Survey
+{{endif}}
 {{ endblock }}
 {{ block content }}
 <style>
@@ -15,8 +19,10 @@ Part 1: Encryption Task Survey
         font-size: 16px;
 }
 </style>
-<p>Please answer the following question about the blue player you were randomly paired with.<br>
-    <br>Before you submit your answer, please make sure you have given it <b>careful consideration</b>.</p>
+<p>
+    Note that the previous screen gave you your NET EARNINGS, which are earnings based on your performance, and the performance of your matched Blue player.
+    Remember that for each word the Blue player encrypted correctly, your Earnings were reduced by 1 token.
+</p>
     {{ formfields }}
 <div align="center">
 

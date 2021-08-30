@@ -1,0 +1,23 @@
+{{ block title }}
+ Decision Task Instructions
+{{ endblock }}
+{{ block content }}
+
+<p>
+    Thank you for completing the Encryption task. Recall that in that task, you were matched with a Blue player who had the opportunity to reduce
+    your earnings from that task. We now turn to the Decision task.<br>
+    <br>In this task, <b>you (as Yellow player)</b> are matched with the <b>same Blue player</b> you were matched with for the Encryption task. However, now you
+    have an opportunity to change their earnings.<br>
+    <br>In this task, you have been provided <b>30 tokens</b>, while your matched Blue player has been provided <b>15
+    tokens</b>. You have the opportunity to transfer tokens to, or take away tokens from, your matched Blue player. You can transfer a positive amount in
+    1 token increments up to a total of 30 tokens, or you can take away/transfer a negative amount 1 token increments up to a total of 15 tokens.<br>
+    <br>The transfer/take away examples will be provided in the next screen.
+</p>
+
+         <div class="row">
+    <div class="col-md-12" align="right">
+        {% next_button %}
+        </div>
+</div>
+
+{{ endblock }}

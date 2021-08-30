@@ -1,5 +1,5 @@
 {{ block title }}
-    Part 2: Decision Exercise
+Decision Task
 {{ endblock }}
 {{ block content }}
 <style>
@@ -74,25 +74,23 @@
 <body>
 <p>Please choose the transfer amount:</p>
 <div class="range">
-    <input id="slider" class="slider" type="range" min="-2" max="4" value="0" step="0.50" name="transfer">
+    <input id="slider" class="slider" type="range" min="-15" max="30" value="0" step="5" name="transfer">
     <div class="sliderticks">
-        <p><br>-2</p>
-        <p><br>-1.50</p>
-        <p><br>-1</p>
-        <p><br>-0.50</p>
+        <p><br>-15</p>
+        <p><br>-10</p>
+        <p><br>-5</p>
         <p><br>0</p>
-        <p><br>0.50</p>
-        <p><br>1</p>
-        <p><br>1.5</p>
-        <p><br>2</p>
-        <p><br>2.5</p>
-        <p><br>3</p>
-        <p><br>3.5</p>
-        <p><br>4</p>
+        <p><br>5</p>
+        <p><br>10</p>
+        <p><br>15</p>
+        <p><br>20</p>
+        <p><br>25</p>
+        <p><br>30</p>
     </div>
 </div>
 <br><br><br>
-<p>You have selected to transfer <b>£<span id="output"></span></b> to the blue player. Your earnings from this part will be <b>£<span id="earnings"></span></b>.</p>
+<p>You have selected to transfer <b><span id="output"></span></b> tokens to the blue player. Your earnings from this
+    part will be <b><span id="earnings"></span></b> tokens.</p>
 <div align="center">
 <button class="buttonred" value="true" name="submit">SUBMIT DECISION</button>
 </div>
@@ -101,11 +99,11 @@
     var slider = document.getElementById("slider");
     var output = document.getElementById("output");
     var earnings = document.getElementById("earnings");
-    output.innerHTML = (slider.value-0).toFixed(2);
-    earnings.innerHTML = (4-slider.value).toFixed(2);
+    output.innerHTML = (slider.value-0).toFixed(0);
+    earnings.innerHTML = (30-slider.value).toFixed(0);
     slider.oninput = function () {
-        earnings.innerHTML = (4-this.value).toFixed(2)
-        output.innerHTML = (this.value-0).toFixed(2);
+        earnings.innerHTML = (30-this.value).toFixed(0)
+        output.innerHTML = (this.value-0).toFixed(0);
     }
 </script>
 

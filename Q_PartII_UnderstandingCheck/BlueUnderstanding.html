@@ -11,10 +11,11 @@
         <!-- Tab navigation -->
         <ul class="nav nav-tabs fixed-top navbar-light bg-light justify-content-center " id="myTab" role="tablist">
             <li class="nav-item" >
-                <a class="nav-link" id="part1-tab" data-toggle="tab" href="#part1" role="tab" aria-controls="part1" onclick="topFunction()">Part 2: First Task Instructions</a>
+                <a class="nav-link" id="part1-tab" data-toggle="tab" href="#part1" role="tab" aria-controls="part1"
+                   onclick="topFunction()">Encryption Task Instructions</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" id="part3-tab" data-toggle="tab" href="#part3" role="tab" aria-controls="part3" onclick="topFunction()">Part 2: Understanding Check</a>
+                <a class="nav-link active" id="part3-tab" data-toggle="tab" href="#part3" role="tab" aria-controls="part3" onclick="topFunction()">Encryption Task Understanding Check</a>
             </li>
         </ul>
         <br>
@@ -26,21 +27,26 @@
                     <h3 class="card-title font-weight-bold">Part 2: Encryption Task Instructions</h3>
                 </div>
                 <p>
-                    <br> The encryption task in Part 2 will be the same encryption task as in Part 1. In this task,
+                    <br> The first task in Part 2 will be the same encryption task as in Part 1. In this task,
                     you will be shown a 5-letter word that you will encode into 5 numbers.  After you finish encoding a word, the computer program will prompt you with another word to encode. Once you encode that word, you will be given another word, and so on.</br>
                     <br>This process will continue for 8 minutes (480 seconds).</br>
-                    <br><b>Part of your bonus payment will be determined by your performance in this task</b>.</br>
-                    <br><b><u>Roles</u></b>
-                    <br>The yellow players in Part 2 <b>may or may not</b> have their tokens decreased by 1 each time a blue player correctly encodes a word.</br>
-                    <br>Similar to Part 1, yellow players cannot take away any tokens from blue players.</br>
+                    <br><b><u>Player Roles</u></b>
+                    <br>There is a possibility that each word a <b>blue player</b> encrypts correctly <b>may decrease</b> a yellow
+                    player’s earnings by 1 token.</br>
+                    <br>Similar to Part 1, each word a <b>yellow player</b> encrypts correctly will <b>not take away tokens</b> from
+                    the blue player.</br>
                     <br><b><u>Token Earnings</u></b></br>
-                    <br>Each correct answer will add 2 tokens to your score, and will be equal to an <b>additional bonus payment</b> of up to £.10 per word encoded with a potential maximum of 64 tokens earned equal to <b>£3.20</b>. Each incorrect answer will not add any tokens to your score.</br>
+                    Each word a player encrypts correctly will add <b>2 tokens</b> to their earnings.</br>
+                    <br>If any letters within a word are encrypted incorrectly, no tokens will be earned for that
+                    word.</br>
+                    <br>The maximum number of tokens any player will earn is 64. To earn 64 tokens, 32 words would need to be correctly
+                         encrypted.</br>
                 </p>
                 <button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Next</button>
             </div>
             <div class="tab-pane active show" id="part3" role="tabpanel" aria-labelledby="part3-tab">
                 <div class="card-header bg-transparent mainheader" >
-                    <h3 class="card-title font-weight-bold">Part 2: Understanding Check</h3>
+                    <h3 class="card-title font-weight-bold">Encryption Task Understanding Check</h3>
                 </div>
                 <br>
                 {{ formfields }}
@@ -50,6 +56,3 @@
         </div>
     </body>
 {% endblock %}
-
-
-

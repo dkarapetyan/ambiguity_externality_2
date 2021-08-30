@@ -1,0 +1,79 @@
+{% block title %}
+{% endblock %}
+{% block scripts %}
+    <script src="{% static 'back_button_v3/js/prev_next_button.js' %}"></script>
+{% endblock %}
+{% block styles %}
+    <link href="{% static 'back_button_v3/css/custom.css' %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+    <body>
+        <!-- Tab navigation -->
+        <ul class="nav nav-tabs fixed-top navbar-light bg-light justify-content-center " id="myTab" role="tablist">
+            <li class="nav-item" >
+                <a class="nav-link" id="part1-tab" data-toggle="tab" href="#part1" role="tab" aria-controls="part1"
+                   onclick="topFunction()">Encryption Task Instructions</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" id="part3-tab" data-toggle="tab" href="#part3" role="tab"
+                   aria-controls="part3" onclick="topFunction()">Encryption Task Understanding Check</a>
+            </li>
+        </ul>
+        <br>
+        <br>
+        <!-- Tab content -->
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane" id="part1" role="tabpanel" aria-labelledby="part1-tab">
+                <div class="card-header bg-transparent mainheader" >
+                    <h3 class="card-title font-weight-bold">Encryption Task Instructions</h3>
+                </div>
+                <br>
+                <p>
+                    <br>In this task, you will be shown a 5-letter word block that you will encode into 5 numbers.  As you can see in the
+                    screenshot below, the first letter in the word is “P”.  The letter “P” corresponds to the number “322” in the encoding table
+                    at the bottom of the screen. To complete this letter correctly, you should put the number “322” into the box below the letter “P”.
+                    You need to complete encoding all 5 letters in the word correctly to have a correct answer.</br>
+                    <br>This process will continue for 8 minutes (480 seconds).</br>
+                   <br><b><u>Encryption Task Player Roles</u></b>
+    <p>   For this experiment, individuals participate in pairs. This means that you will be paired with another individual
+    participating in the experiment, and that your decisions may impact their earnings, while their decisions may
+    impact your earnings.<br>
+    <br>Participants have different roles, and to differentiate between them, we have labeled them as the "Blue
+    player" and the "Yellow player".<br>
+    <ul>
+    <br><li>You have been assigned to be the <b>Yellow player</b>.<br></li>
+    <br><li>Your counterpart Blue player has been randomly selected. Note that the Blue player has already participated
+    in the experiment, but the decisions that you make can still affect their final payment. How the payments are
+    affected will be explained on the next screen.<br></ul></li></p>
+    <br><b><u>Encryption Task Earnings</b></u><br>
+    Both Blue and Yellow participants engage in the Encryption task for the bonus payment. The Encryption task lasts for
+    <b>8
+    minutes</b>,
+    and you are free to make as much money as you can.   For each word encrypted correctly, you will earn <b>2 tokens</b>.  You will
+    earn nothing for any word encrypted incorrectly. Note that both Yellow and Blue players face the same conditions.
+    So, each participant earns 2 tokens for each word encrypted correctly.<br>
+    <br>However, there is one additional condition that depends on the roles.  For <b>each word</b> that the <b>Blue player encrypts correctly</b>, the <b>Yellow player loses 1 token</b>.  But, the reverse is not true: the number of words
+    encrypted correctly by the Yellow player has no effect on the earnings of the Blue player.<br>
+    <br>As you are the Yellow player, your earnings are <b>positively</b> affected by your performance in the
+    encryption task, <b>but negatively</b> affected by your matched Blue players performance in the encryption task.
+    Suppose you were able to encrypt 20 words correctly, while your matched Blue player was able to encrypt 25 words correctly.  This means
+    that your earnings from the Encryption task will be (20 * 2 = ) 40 minus (25 * 1 = ) 25 = 15 tokens.  Hence, in this example, the matched
+    Blue player would earn (25 * 2 = ) 50 tokens, while you would earn 15 tokens.<br>
+                </p>
+                <button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Next</button>
+            </div>
+            <div class="tab-pane active show" id="part3" role="tabpanel" aria-labelledby="part3-tab">
+                <div class="card-header bg-transparent mainheader" >
+                    <h3 class="card-title font-weight-bold">Encryption Task Understanding Check</h3>
+                </div>
+                <br>
+                {{ formfields }}
+                <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Back</button>
+                <button class="nexttab btn-primary btn next">Next</button>
+            </div>
+        </div>
+    </body>
+{% endblock %}
+
+
+

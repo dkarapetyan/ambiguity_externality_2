@@ -25,7 +25,7 @@ class Player(BasePlayer):
     initial_ans = models.StringField(initial="")
     num_wrong = models.IntegerField(initial=0)
     q1 = models.IntegerField(
-        label="This question is for checking your attention. Please select Disagree.",
+        label="This question is for checking your attention. Please select Somewhat Agree.",
         choices=[[1, "Somewhat Disagree"], [2, "Agree"], [3, "Disagree"], [4, "Somewhat Agree"]],
         widget=widgets.RadioSelect,
         blank=True,
@@ -38,7 +38,7 @@ class AttentionCheck(Page):
     form_fields = ["q1"]
 
     def before_next_page(player: Player, timeout_happened):
-        if player.q1 !=3:
+        if player.q1 !=4:
             player.participant.failedattentioncheck += 1
 
 

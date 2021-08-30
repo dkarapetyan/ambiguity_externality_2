@@ -36,10 +36,12 @@ class Player(BasePlayer):
         label="Externality Choice",
         widget=widgets.RadioSelect,
         choices=[[1,
-                  "I would like to earn 2 tokens for every word I encrypt, with 1 token taken away from the earnings "
+                  "I would like to earn <b>2 tokens for every word I encrypt, with 1 token taken away from the "
+                  "earnings "
                   "of the yellow player I am paired with."],
                  [2,
-                  "I would like to earn 1.6 tokens for every word I encrypt, with no tokens taken away from the earnings of the yellow player I am paired with."]],
+                  "I would like to earn 1.5 tokens for every word I encrypt, with no tokens taken away from the "
+                  "earnings of the yellow player I am paired with."]],
     )
 
 
@@ -82,7 +84,7 @@ class Hidden(Page):
 
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
-        player.participant.tokens_II = int(2*player.performance)
+        player.participant.tokens_II = 2*player.performance
         player.participant.performance_II = player.performance
 
 

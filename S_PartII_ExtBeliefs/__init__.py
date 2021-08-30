@@ -23,11 +23,11 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     choice_guess = models.IntegerField(
-        label="Do you think the blue player decreased your token earnings in the encryption task of Part 2?",
+        label="Do you think the blue player decreased your token earnings in the encryption task?",
         widget=widgets.RadioSelect,
         choices=[[1, "No"], [2, "Yes"]],
     )
-    externality_guess2 = models.IntegerField(min=0, max=32, label="Between 0 and 32 tokens, how much do you think the " 
+    externality_guess2 = models.IntegerField(min=1, max=32, label="Between 1 and 32 tokens, how much do you think the " 
                                                   "blue player "
                                                   "decreased your earnings by in Part 2?")
 
@@ -36,7 +36,7 @@ class Player(BasePlayer):
 class ExtBeliefs2(Page):
     @staticmethod
     def is_displayed(player: Player):
-        return player.session.config['name'] == "victim"
+        return player.session.config['name'] == "victim2"
     form_model = "player"
     form_fields = ['choice_guess']
 
@@ -44,7 +44,7 @@ class ExtBeliefs2(Page):
 class ExtBeliefs2a(Page):
     @staticmethod
     def is_displayed(player: Player):
-        if player.session.config['name'] == "victim" and player.choice_guess == 2:
+        if player.session.config['name'] == "victim2" and player.choice_guess == 2:
             return True
     form_model = "player"
     form_fields = ['externality_guess2']

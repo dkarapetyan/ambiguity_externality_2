@@ -1,18 +1,12 @@
 {{ block title }}
- Part 1: Decision Exercise Earnings
+Decision Task Earnings
 {{ endblock }}
 
 {{ block content }}
 
-{{ if session.config.name == "victim" }}
-Your net earnings from the decision exercise is {{ player.participant.dictator_I }}.
-{{else}}
-<p>Since you are the blue player, you don’t need to make any decision in this task.</p>
-<p>The yellow player will be given a certain sum of money in this decision exercise, and will decide on how
-    much money, if any, to transfer to the blue player.</p>
-<p>The yellow player’s allocation decision, along with any adjustments that need to be made to your bonus payment for this task, will be provided to you within 21 days.</p>
-<p><b>You will not immediately know what your total additional bonus payment will be until the yellow player’s decision is made.</b></p>
-{{endif}}
+
+Your net earnings from the decision task is {{ player.participant.dictator_I }} tokens.
+
           <div class="row">
     <div class="col-md-12" align="right">
         {% next_button %}

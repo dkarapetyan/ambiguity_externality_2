@@ -26,15 +26,20 @@ class Player(BasePlayer):
 
 
 # PAGES
-class GenInstructions2(Page):
-    pass
-
 class YellowInstructions2(Page):
     def is_displayed(player: Player):
-        return player.session.config['name'] == "victim"
+        return player.session.config['name'] == "victim2"
+
+class YellowRole(Page):
+    def is_displayed(player: Player):
+        return player.session.config['name'] == "victim2"
 
 class BlueInstructions2(Page):
     def is_displayed(player: Player):
         return player.session.config['name'] == "perp"
 
-page_sequence = [GenInstructions2,YellowInstructions2,BlueInstructions2]
+class BlueRole(Page):
+    def is_displayed(player: Player):
+        return player.session.config['name'] == "perp"
+
+page_sequence = [YellowInstructions2, YellowRole, BlueInstructions2, BlueRole]

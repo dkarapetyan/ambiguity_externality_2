@@ -8,7 +8,7 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'G_PartII_UnderstandingCheck'
+    name_in_url = 'Q_PartII_UnderstandingCheck'
     players_per_group = None
     num_rounds = 1
 
@@ -30,34 +30,57 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     q2 = models.IntegerField(
-        label="I will be paired with the same player I was paired with in Part 1.",
+        label="Since you are a yellow player, you will be paired with a blue player.",
         choices=[[1, "True"], [2, "False"]],
         widget=widgets.RadioSelect
     )
     q3 = models.IntegerField(
-        label="How many tokens will I earn for each word I encode correctly?",
+        label="How many tokens will you earn for each word you encrypt correctly?",
         choices=[[1, "One"], [2, "Two"],[3, "Four"]],
         widget=widgets.RadioSelect
     )
+
     q4 = models.IntegerField(
-        label="It is possible a yellow player's bonus payment may not be impacted by a blue player’s efforts in "
-              "Part 2.",
+        label="There is a possibility that the blue player may decrease your earnings by 1 token for every word they "
+              "encrypt correctly.",
+        choices=[[1, "True"], [2, "False"]],
+        widget=widgets.RadioSelect
+    )
+    q5 = models.IntegerField(
+        label="What do you have to do in the encryption task?",
+        choices=[[1, "Encode words into numbers"], [2, "Counting numbers in a line"],
+                 [3, "Add a series of 2-digit numbers"]],
+        widget=widgets.RadioSelect
+    )
+
+    q6 = models.IntegerField(
+        label="Your bonus payment in Part 2 is expected to be higher the better your performance is.",
+        choices=[[1, "True"], [2, "False"]],
+        widget=widgets.RadioSelect
+    )
+
+    q7 = models.IntegerField(
+        label="You will be paired with the same yellow player you were paired with in Part 1. ",
         choices=[[1, "True"], [2, "False"]],
         widget=widgets.RadioSelect
     )
 
 
-class UnderstandingCheck(Page):
+class YellowUnderstanding(Page):
+    def is_displayed(player: Player):
+        return player.session.config['name'] == "victim2"
+
     form_model = "player"
-    form_fields = ["q1", "q2", "q3", "q4"]
+    form_fields = ["q1", "q2", "q3", "q4", "q5"]
 
     @staticmethod
     def error_message(player, values):
         solutions = dict(
             q1=1,
-            q2=2,
+            q2=1,
             q3=2,
-            q4=1
+            q4=1,
+            q5=1
         )
 
         error_messages = dict()
@@ -71,5 +94,32 @@ class UnderstandingCheck(Page):
 
         return error_messages
 
+class BlueUnderstanding(Page):
+    def is_displayed(player: Player):
+        return player.session.config['name'] == "perp"
 
-page_sequence = [UnderstandingCheck]
+    form_model = "player"
+    form_fields = ["q3", "q6", "q7"]
+
+    @staticmethod
+    def error_message(player, values):
+        solutions = dict(
+            q3=2,
+            q6=1,
+            q7=2,
+            )
+
+        error_messages = dict()
+
+        for field_name in solutions:
+            if len(player.initial_ans) < 6:
+                player.initial_ans += str(values[field_name])
+            if values[field_name] != solutions[field_name]:
+                player.num_wrong += 1
+                error_messages[field_name] = 'Wrong answer. Click "Back" to review the instructions and try again'
+
+        return error_messages
+
+
+page_sequence = [YellowUnderstanding, BlueUnderstanding]
+

@@ -8,11 +8,11 @@ a.k.a. Encryption Game
 
 class Constants(BaseConstants):
     players_per_group = None
-    num_rounds = 1
     name_in_url = "encrypt_I"
+    num_rounds = 2
     letters_per_word = 5
     use_timeout = True
-    seconds_per_period = 480
+    seconds_per_period = 360
 
 
 class Subsession(BaseSubsession):
@@ -66,8 +66,11 @@ class Hidden(Page):
         player.participant.performance_I = player.performance
 
 
-class Results(Page):
-    pass
+class Complete(Page):
+    @staticmethod
+    def app_after_this_page(player: Player, upcoming_apps):
+        if "victim" in player.session.config['name']:
+            return "I_PartI_RevealEarnings"
 
 
 
@@ -75,5 +78,5 @@ page_sequence = [
     BeginEncryptionTask,
     Task,
     Hidden,
-    Results,
+    Complete,
 ]

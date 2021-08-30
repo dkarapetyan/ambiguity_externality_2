@@ -26,8 +26,20 @@ class Player(BasePlayer):
 
 
 # PAGES
-class Introduction(Page):
-    pass
+class BlueIntro(Page):
+    def is_displayed(player: Player):
+        return player.session.config['name'] == "perp"
 
+class BlueIntro2(Page):
+    def is_displayed(player: Player):
+        return player.session.config['name'] == "perp"
 
-page_sequence = [Introduction]
+class Yellow1Intro(Page):
+    def is_displayed(player: Player):
+        return player.session.config['name'] != "perp"
+
+class Yellow2Intro(Page):
+    def is_displayed(player: Player):
+        return player.session.config['name'] != "perp"
+
+page_sequence = [BlueIntro, BlueIntro2, Yellow1Intro, Yellow2Intro]

@@ -1,5 +1,9 @@
 {{ block title }}
+{{ if session.config.name == "perp" }}
     Part 2: Begin Encryption Task
+{{else}}
+Begin Encryption Task
+{{endif}}
 {{ endblock }}
 {{ block content }}
 
@@ -17,11 +21,12 @@
 }
 </style>
 
-{{ if session.config.name == "victim" }}
+{{ if session.config.name == "victim2" }}
     <!-- for yellow players -->
     <p>
-        <br>Since you were a yellow player in Part 1, you are once again a yellow player in Part 2.</br>
-        <br>You have now been randomly re-matched with <b>another blue player</b>.<br>
+        <br>For every word you encrypt correctly, <b>2 tokens will be added</b> to your earnings.<br>
+        <br>For every word the blue player encrypts correctly, there is a possibility that <b>1 token may be
+        taken away</b> from your earnings.</br>
         <br>Please proceed to the Encryption Task.<br>
         <br><b>You will not be able to pause the task, so please make sure that you are available for the next 8 minutes without any interruption.<br></b>
     </p>
@@ -29,18 +34,17 @@
 {{ else }}
     <!-- for blue players -->
     <p>
-         {{if player.externality == 1}}
+
         <br>You will now be randomly re-matched with <b>another yellow player</b>.</br>
-        <br>Each word you encrypt will take away 1 token from the yellow player you are paired with.<br>
+        {{if player.externality == 1}} <br>Each word you encrypt will take away 1 token from the yellow player you
+        are paired with.<br>
+        {{ else }}
+        <br>Each word you encrypt will not take away any tokens from the yellow player you are paired with.<br>
+        {{ endif }}
+
         <br>Please proceed to the Encryption Task.<br>
         <br><b>You will not be able to pause the task, so please make sure that you are available for the next 8 minutes without any interruption.<br></b>
 
-        {{ else }}
-        <br>You will now be randomly re-matched with <b>another yellow player</b>.</br>
-        <br>Each word you encrypt will not take away any tokens from the yellow player you are paired with.<br>
-        {{ endif }}
-        <br>Please proceed to the Encryption Task.<br>
-        <br><b>You will not be able to pause the task, so please make sure that you are available for the next 8 minutes without any interruption.<br></b>
     </p>
 {{ endif }}
 

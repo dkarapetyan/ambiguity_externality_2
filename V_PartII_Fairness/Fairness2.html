@@ -1,5 +1,5 @@
 {{ block title }}
-    Part 2: Fairness Survey
+ Fairness Survey
 {{ endblock }}
 {{ block content }}
 <style>
@@ -72,9 +72,15 @@
 }
 </style>
 <body>
+    {{ if session.config.name == "perp" }}
     <p>
         From very unfair to very fair, how would you rate the fairness of the study in Part 2?
     </p>
+ {{else}}
+     <p>
+        From very unfair to very fair, how would you rate the fairness of this study?
+    </p>
+ {{endif}}
     <div class="range">
         <input class="slider" type="range" min="-2" max="2" value="0" name="fairness">
         <div class="sliderticks">

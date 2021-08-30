@@ -1,0 +1,33 @@
+{{ block title }}
+   Introduction
+{{ endblock }}
+{{ block content }}
+
+<p>
+  <b>Overview of Study </b>
+  <br />
+    Here is a brief overview of the study.
+    <br />
+ <br />
+    <b><u> What will I have to do?</u></b>   <br />
+This study will consist of two main tasks along with brief survey questions.  It should take an average of 30 minutes to complete in total.
+    <br /><br />
+
+    <b> <u>How much payment will I receive for my participation?</u></b>
+  <br>You will receive {{ session.config.participation_fee }} as the participation fee for completing the study.<br>
+    <br>You will also have the opportunity to earn additional money.<br>
+    <br>In this experiment, we will be using a currency called “Tokens”. These tokens will determine your <b>additional
+    earnings</b>, which will depend on your performance and the decisions you make. For each token you earn, you
+    will be paid £0.05.  As an example, if you earned 100 tokens in total, you would be paid £5 (100*0.05).<br>
+    <br>Your total payment from this study will be equal to the participation fee plus your additional earnings.
+    So, if you earned 100 tokens, you would be paid a total of £8.75 (£3.75 + £5).<br>
+</p>
+
+    {{ formfields }}
+     <div class="row">
+    <div class="col-md-12" align="right">
+        {% next_button %}
+        </div>
+</div>
+
+{{ endblock }}

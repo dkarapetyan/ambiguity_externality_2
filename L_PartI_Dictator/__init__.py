@@ -23,39 +23,38 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
 
-    transfer = models.CurrencyField(
-        #choices=[0, .5, 1, 1.5, 2, 2.5, 3, 3.5, 4, -.5, -1, -1.5, -2],
+    transfer = models.IntegerField(
         doc="""Amount dictator transferred""",
     )
-    endowment = models.CurrencyField()
+    endowment = models.IntegerField()
 
 
 # PAGES
-class Introduction(Page):
-    pass
-
-
-class Instructions(Page):
+class Instructions1(Page):
     def is_displayed(player: Player):
-        return player.session.config['name'] == "victim"
+        return player.session.config['name'] == "victim1"
+
+class Instructions2(Page):
+    def is_displayed(player: Player):
+        return player.session.config['name'] == "victim1"
 
 
 class Offer(Page):
     def is_displayed(player: Player):
-        return player.session.config['name'] == "victim"
+        return player.session.config['name'] == "victim1"
 
     form_model = 'player'
     form_fields = ['transfer']
 
     def before_next_page(player: Player, timeout_happened):
-        if player.session.config['name'] == "victim":
-            player.participant.dictator_I = cu(4) - player.transfer
+        if player.session.config['name'] == "victim1":
+            player.participant.dictator_I = 30 - player.transfer
         else:
-            player.participant.dictator_I = cu(2)
+            player.participant.dictator_I = 15
 
 
 class Results(Page):
     pass
 
 
-page_sequence = [Introduction, Instructions, Offer, Results]
+page_sequence = [Instructions1, Instructions2, Offer, Results]

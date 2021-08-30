@@ -5,7 +5,7 @@ from otree.api import *
 author = 'LEDR Team'
 
 doc = """
-Standard welcome pages for LEDR experiments
+outro
 """
 
 
@@ -39,14 +39,27 @@ class Hidden(Page):
 
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
-        if player.participant.random_part == 'I':
-            player.participant.payoff = cu(player.participant.payoff_I*player.session.real_world_currency_per_point)
+        if player.session.config['name'] == "perp":
+            if player.participant.random_part == 'I':
+                player.participant.payoff = player.participant.payoff_I
+            else:
+                player.participant.payoff = player.participant.payoff_II
         else:
-            player.participant.payoff = cu(player.participant.payoff_II*player.session.real_world_currency_per_point)
+            pass
 
 
-class ThankYou(Page):
-    pass
+class Y1Thanks(Page):
+    def is_displayed(player: Player):
+        return player.session.config['name'] == "victim1"
+
+class Y2Thanks(Page):
+    def is_displayed(player: Player):
+        return player.session.config['name'] == "victim2"
 
 
-page_sequence = [Hidden, ThankYou]
+class BThanks(Page):
+    def is_displayed(player: Player):
+        return player.session.config['name'] == "perp"
+
+
+page_sequence = [Hidden, BThanks, Y1Thanks, Y2Thanks]

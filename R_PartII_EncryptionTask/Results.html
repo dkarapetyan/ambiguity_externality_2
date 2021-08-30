@@ -6,9 +6,9 @@
 
 {% block content %}
 
-    {{ if session.config.name == "victim" }}
-        <h3>Part 2: Encryption Task Complete</h3>
-        <br><p>You have completed the encryption task of Part 2, and your token earnings will be provided to you shortly.</br></p>
+    {{ if session.config.name == "victim2" }}
+        <h3>Encryption Task Complete</h3>
+        <br><p>You have completed the encryption task, and your net token earnings will be displayed on the next page.</br></p>
     {{ else }}
         <h3>Part 2: Encryption Task Complete</h3>
         <br><p>You have completed the encryption task of Part 2, and earned {{ player.participant.tokens_II }} tokens in

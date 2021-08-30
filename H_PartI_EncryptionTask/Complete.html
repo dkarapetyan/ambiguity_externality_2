@@ -6,17 +6,15 @@
 
 {% block content %}
 
-    {{ if session.config.name == "victim" }}
-        <h3>Part 1: Encryption Task Complete</h3>
-        <br><p>You have completed the encryption task of Part 1, and your net token earnings will be displayed on the
-    next page.</br></p>
-
-
-    {{ else }}
-        <h3>Part 1: Encryption Task Complete</h3>
+    {{ if session.config.name == "perp" }}
+    <h3>Part 1: Encryption Task Complete</h3>
     <br><p>You have completed the encryption task of Part 1, and your token earnings will be displayed on the
     next page.</p>
 
+    {{ else }}
+     <h3>Encryption Task Complete</h3>
+     <br><p>You have completed the encryption task, and your  earnings will be displayed on the
+    next page.</br></p>
 
     {{ endif }}
 

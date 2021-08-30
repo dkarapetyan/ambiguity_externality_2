@@ -1,5 +1,9 @@
 {{ block title }}
+{{ if session.config.name == "perp" }}
     Part 1: Begin Encryption Task
+{{else}}
+Begin Encryption Task
+{{endif}}
 {{ endblock }}
 {{ block content }}
 <style>
@@ -16,22 +20,24 @@
 }
 </style>
 
-{{ if session.config.name == "victim" }}
-    <!-- for yellow players -->
+{{ if session.config.name == "perp" }}
+
+    <!-- for blue players -->
     <p>
-        Since you've been assigned to be a <b>yellow player</b>, you will be paired with a blue player.<br>
-        <br>Each word the blue player you are paired with encrypts will <b>take away 1 token</b> from your earnings.<br>
-    <br>Please proceed to the Encryption Task.<br>
+        Since you've been assigned to be a <b>blue player</b>, you will be paired with a yellow player.<br>
+        <br> Each word you encrypt will <b>add 2 tokens</b> to your earnings, but <b>take away 1 token</b> from the
+        earnings of the yellow player you are paired with.<br>
+        <br>Please proceed to the Encryption Task.<br>
         <br><b>You will not be able to pause the task, so please make sure that you are available for the next 8 minutes without any interruption.<br></b>
     </p>
 
 {{ else }}
-    <!-- for blue players -->
+   <!-- for yellow players -->
     <p>
-        Since you've been assigned to be a <b>blue player</b>, you will be paired with a yellow player.<br>
-        <br>Each word you encrypt will <b>take away 1 token</b> from the earnings of the yellow player you are paired
-        with.<br>
-    <br>Please proceed to the Encryption Task.<br>
+        <br>For every word you encrypt correctly, <b>2 tokens will be added</b> to your earnings.<br>
+        <br>For every word the blue player encrypts correctly, <b>1 token will be taken away</b> from your
+        earnings.<br>
+        <br>Please proceed to the Encryption Task.<br>
         <br><b>You will not be able to pause the task, so please make sure that you are available for the next 8 minutes without any interruption.<br></b>
     </p>
 {{ endif }}

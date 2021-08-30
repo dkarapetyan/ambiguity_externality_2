@@ -1,0 +1,26 @@
+{{ block title }}
+   Introduction
+{{ endblock }}
+{{ block content }}
+    <br><b><u>How will payment be made?</u></b>
+    <br>You will receive the completion payment of {{ session.config.participation_fee }} and your bonus payment
+    <b>only if you complete</b> the study.<br>
+    <br>Once all participants complete this study, payment will be made via the Prolific platform within a maximum of
+21 days from the conclusion of the
+       study.<br>
+    <br><b><u>Please note!</u></b>
+  <br>There will be several <b>Attention Check</b> questions throughout this study meant to test whether you are
+    paying attention.
+    <p><b>If you fail to correctly complete one or more of these Attention Check questions, you may
+    not be paid.</b></p>
+<p>Finally, please note that this research <b>does not employ deception</b>. This is regulated by the researchers’
+institutional ethics committees.</p>
+
+    {{ formfields }}
+     <div class="row">
+    <div class="col-md-12" align="right">
+        {% next_button %}
+        </div>
+</div>
+
+{{ endblock }}

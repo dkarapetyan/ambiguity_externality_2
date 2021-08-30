@@ -600,7 +600,7 @@ class Player(BasePlayer):
 
 
 class Introduction(Page):
-    template_name = "C_LEDRDemographics/Introduction.html"
+    template_name = "C_LEDRDemographics/
 
     def vars_for_template(self):
         return {'title': "A bit about you...",
