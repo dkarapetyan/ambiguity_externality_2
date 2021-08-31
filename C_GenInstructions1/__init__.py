@@ -8,7 +8,7 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'E_PartI_GenInstructions'
+    name_in_url = 'C_GenInstructions1'
     players_per_group = None
     num_rounds = 1
 
@@ -27,16 +27,21 @@ class Player(BasePlayer):
 
 # PAGES
 class BlueInstructions(Page):
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.session.config['name'] == "perp"
+
+
+class BlueRole(Page):
+    @staticmethod
     def is_displayed(player: Player):
         return player.session.config['name'] == "perp"
 
 
 class YellowRole(Page):
+    @staticmethod
     def is_displayed(player: Player):
-        return player.session.config['name'] == "victim1"
+        return "victim" in player.session.config['name']
 
-class BlueRole(Page):
-    def is_displayed(player: Player):
-        return player.session.config['name'] == "perp"
 
 page_sequence = [BlueInstructions, BlueRole, YellowRole]

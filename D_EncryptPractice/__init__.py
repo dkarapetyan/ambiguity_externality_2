@@ -1,8 +1,6 @@
 from otree.api import *
 
-doc = """
-a.k.a. Encryption Game
-"""
+doc = """Encryption Practice"""
 
 
 class Constants(BaseConstants):
@@ -37,44 +35,12 @@ class Player(BasePlayer):
     disp_ext = models.BooleanField()
     initial_ans = models.StringField(initial="")
     num_wrong = models.IntegerField(initial=0)
-    q1 = models.IntegerField(
-        label="This question is for checking your attention. Please select Disagree.",
-        choices=[[1, "Disagree"], [2, "Somewhat Disagree"], [3, "Agree"], [4, "Somewhat Agree"]],
-        widget=widgets.RadioSelect,
-        blank=True,
-        initial = 0
-    )
 
 
 # PAGES
-
 class Example(Page):
     pass
 
-class AttentionCheck(Page):
-    form_model = 'player'
-    form_fields = ["q1"]
-
-    def before_next_page(player: Player, timeout_happened):
-        if player.q1 !=1:
-            player.participant.failedattentioncheck += 1
-
-
-class FailedCheck(Page):
-    def is_displayed(player: Player):
-        return player.participant.failedattentioncheck >= 2
-
-class RolesTokens(Page):
-    def is_displayed(player: Player):
-        return player.session.config['name'] == "perp"
-
-class RoleTokensY1(Page):
-    def is_displayed(player: Player):
-        return player.session.config['name'] == "victim1"
-
-class YellowEarnings(Page):
-    def is_displayed(player: Player):
-        return player.session.config['name'] == "victim1"
 
 class TaskEntrainement(Page):
     def is_displayed(self):
@@ -104,10 +70,5 @@ class ResultsEntr(Page):
 page_sequence = [
     Example,
     TaskEntrainement,
-    ResultsEntr,
-    AttentionCheck,
-    FailedCheck,
-    RolesTokens,
-    RoleTokensY1,
-    YellowEarnings
+    ResultsEntr
 ]

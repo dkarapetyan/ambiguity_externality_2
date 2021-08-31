@@ -8,7 +8,7 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'G_PartI_UnderstandingCheck'
+    name_in_url = 'G_UnderstandingCheck1'
     players_per_group = None
     num_rounds = 1
 
@@ -41,17 +41,22 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     q4 = models.IntegerField(
+        label="You are randomly and anonymously paired with a Yellow player.",
+        choices=[[1, "True"], [2, "False"]],
+        widget=widgets.RadioSelect
+    )
+    q5 = models.IntegerField(
         label="How many tokens will you earn for each word you encrypt correctly? ",
         choices=[[1, "1"], [2, "2"], [3, "4"]],
         widget=widgets.RadioSelect
     )
-    q5 = models.IntegerField(
+    q6 = models.IntegerField(
         label="As the Blue player, how many tokens will you take away from the Yellow player for every word you "
               "encrypt correctly?",
         choices=[[1, "1"], [2, "2"], [3, "4"]],
         widget=widgets.RadioSelect
     )
-    q6 = models.IntegerField(
+    q7 = models.IntegerField(
         label="How many tokens will the blue player take away from you for each word they encrypt correctly?",
         choices=[[1, "1"], [2, "2"], [3, "4"]],
         widget=widgets.RadioSelect
@@ -59,11 +64,12 @@ class Player(BasePlayer):
 
 
 class YellowUnderstanding(Page):
+    @staticmethod
     def is_displayed(player: Player):
         return player.session.config['name'] == "victim1"
 
     form_model = "player"
-    form_fields = ["q1", "q2", "q3", "q4", "q6"]
+    form_fields = ["q1", "q2", "q3", "q5", "q7"]
 
     @staticmethod
     def error_message(player, values):
@@ -71,8 +77,8 @@ class YellowUnderstanding(Page):
             q1=1,
             q2=1,
             q3=1,
-            q4=2,
-            q6=1
+            q5=2,
+            q7=1
         )
 
         error_messages = dict()
@@ -86,21 +92,23 @@ class YellowUnderstanding(Page):
 
         return error_messages
 
+
 class BlueUnderstanding(Page):
+    @staticmethod
     def is_displayed(player: Player):
         return player.session.config['name'] == "perp"
 
     form_model = "player"
-    form_fields = ["q1", "q2", "q3", "q4", "q5"]
+    form_fields = ["q1", "q2", "q4", "q5", "q6"]
 
     @staticmethod
     def error_message(player, values):
         solutions = dict(
             q1=1,
             q2=1,
-            q3=1,
-            q4=2,
-            q5=1,
+            q4=1,
+            q5=2,
+            q6=1,
             )
 
         error_messages = dict()
