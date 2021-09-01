@@ -1,0 +1,29 @@
+{{ block title }}
+    Encryption Task Survey
+{{ endblock }}
+{{ block content }}
+<style>
+    .buttonred {
+        background-color: red;
+        border: none;
+        color: white;
+        font-weight: bold;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+}
+</style>
+<p>
+    Since you answered yes, please answer also answer the following questions.
+</p>
+
+    {{ formfield 'earnings_guess' }}
+    {{ formfield 'externality_guess' }}
+
+<div align="center">
+    <button class="buttonred" value="true" name="submit">SUBMIT</button>
+</div>
+
+{{ endblock }}

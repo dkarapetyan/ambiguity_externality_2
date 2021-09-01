@@ -1,4 +1,5 @@
 from otree.api import *
+import random
 
 c = Currency
 
@@ -49,6 +50,10 @@ class Consent(Page):
     form_model = 'player'
     form_fields = ['consent']
 
+    def before_next_page(player: Player, timeout_happened):
+        if player.session.config['name'] == "victim2":
+            player.participant.v2_treatment = random.choice([True, False])
+            print(player.participant.v2_treatment)
 
 class BlockDropouts(Page):
     @staticmethod

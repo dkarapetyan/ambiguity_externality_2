@@ -1,0 +1,42 @@
+{{ block title }}
+    Encryption Task Player Roles
+{{ endblock }}
+{{ block content }}
+
+    <p>
+        For this experiment, individuals participate in pairs. This means that you will be paired with another
+        individual participating in the experiment, and that your decisions may impact their earnings, while their
+        decisions may impact your earnings.
+    </p>
+    <p>
+        Participants have different roles, and to differentiate between them, we have labeled them as the "Blue player"
+        and the "Yellow player".
+    </p>
+
+{{ if session.config.name == "perp" }}
+
+    <ul>
+        <li>You have been assigned to be the <b>Blue player</b>.</li>
+        <li>Your counterpart Yellow player will be randomly matched with you for each encryption task that you
+            participate in.  This means that once you complete a 6-minute encryption task, the next 6-minute encryption
+            task you participate in will be with another Yellow player.</li>
+    </ul>
+
+{{ else }}
+
+    <ul>
+        <li>You have been assigned to be the <b>Yellow player</b>.</li>
+        <li>Your counterpart Blue player has been randomly selected. Note that the Blue player has already participated
+            in the experiment, but the decisions that you make can still affect their final payment. How the payments
+            are affected will be explained on the next screen.</li>
+    </ul>
+
+{{ endif }}
+
+<div class="row">
+    <div class="col-md-12" align="right">
+        {% next_button %}
+    </div>
+</div>
+
+{{ endblock }}

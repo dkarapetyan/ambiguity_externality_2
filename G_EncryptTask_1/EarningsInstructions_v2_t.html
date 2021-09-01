@@ -1,0 +1,121 @@
+{% block title %}
+{% endblock %}
+{% block scripts %}
+    <script src="{% static 'back_button_v3/js/prev_next_button.js' %}"></script>
+{% endblock %}
+{% block styles %}
+    <link href="{% static 'back_button_v3/css/custom.css' %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+    <body>
+        <!-- Tab navigation -->
+        <ul class="nav nav-tabs fixed-top navbar-light bg-light justify-content-center " id="myTab" role="tablist">
+            <li class="nav-item" >
+                <a class="nav-link active" id="part1-tab" data-toggle="tab" href="#part1" role="tab" aria-controls="part1"
+                   onclick="topFunction()">1</a>
+            </li>
+            <li class="nav-item" >
+                <a class="nav-link" id="part2-tab" data-toggle="tab" href="#part2" role="tab" aria-controls="part2"
+                   onclick="topFunction()">2</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="part3-tab" data-toggle="tab" href="#part3" role="tab"
+                   aria-controls="part3" onclick="topFunction()">3</a>
+            </li>
+        </ul>
+        <br>
+        <br>
+        <!-- Tab content -->
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane active show" id="part1" role="tabpanel" aria-labelledby="part1-tab">
+                <div class="card-header bg-transparent mainheader" >
+                    <h3 class="card-title font-weight-bold">Encryption Task Earnings Instructions</h3>
+                </div>
+                    <p>
+                        Both Blue and Yellow participants engage in the Encryption task for their additional earnings.
+                        The Encryption task lasts for 6 minutes, and you are free to make as much money as you can.
+                        For each word encrypted correctly, you will earn 2 tokens. You will earn nothing for any word
+                        encrypted incorrectly. Note that both Yellow and Blue players face the same conditions.
+                    </p>
+                    <p>
+                        However, there is one additional condition that depends on the roles. The Blue player will have
+                        made a choice between two payoff schemes prior to participating in the encryption task.
+                        Depending on the choice your matched Blue player made, your earnings may be negatively affected
+                        by their performance in the encryption task. But, the reverse is not true: the Yellow player
+                        has no payoff scheme choice to make.
+                    </p>
+                    <p>
+                        The Blue player had to choose between the following:
+                    </p>
+                    <ul>
+                        <li>For each word encrypted correctly, the Blue player may add 2 tokens to their earnings but
+                            the Yellow player loses 1 token.</li>
+                        <li>For each word encrypted correctly, the Blue player may add 1.5 tokens to their earnings
+                            with no effect on the Yellow player earnings.</li>
+                    </ul>
+                    <p>
+                        As you are the Yellow player, your earnings are positively affected by your performance in the
+                        encryption task, but might be negatively affected by your matched Blue player’s performance in
+                        the encryption task depending on the choice they make. Note that before the Blue player began
+                        the encryption task, the Blue player was also told how their performance would impact the
+                        player they would be matched with.
+                    </p>
+                    <p>
+                        On the next screen, you will be provided with three different scenarios of what impact your
+                        performance and your matched Blue player’s performance will have on additional earnings if the
+                        Blue player did choose the payoff scheme that would decrease your earnings.
+                    </p>
+                <button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Next</button>
+            </div>
+
+            <div class="tab-pane" id="part2" role="tabpanel" aria-labelledby="part2-tab">
+                <div class="card-header bg-transparent mainheader" >
+                    <h3 class="card-title font-weight-bold">Encryption Task Earnings Instructions</h3>
+                </div>
+                        <p>The following earning example only applies if your matched Blue player chose the payoff
+                            scheme that would decrease your earnings:
+                        </p>
+                        <p>
+                            <b>Equal Performance</b>
+                        </p>
+                        <p>
+                            Suppose both you and your matched Blue player were able to encrypt 20 words correctly.
+                            This means that your earnings from the Encryption task will be (20 × 2) = 40 minus (20 × 1) = 20  = 20 tokens.
+                            Hence, in this example, the matched Blue player would earn (20 × 2) = 40 tokens, while you would earn 20 tokens.
+                        </p>
+                        <p>
+                            <b>Better Performance by Blue Player</b>
+                        </p>
+                        <p>
+                            Now, suppose you were able to encrypt 20 words correctly, while your matched Blue player was able to
+                            encrypt 25 words correctly.  This means that your earnings from the Encryption task will be (20 × 2 =) 40 minus
+                            (25 × 1 =) 25 = 15 tokens.  Hence, in this example, the matched Blue player would earn (25 × 2 =) 50 tokens,
+                            while you would earn 15 tokens.
+                        </p>
+                        <p>
+                            <b>Better Performance by Yellow Player</b>
+                        </p>
+                        <p>
+                            As a last example, suppose you were able to encrypt 20 words correctly, while your matched Blue player
+                            was only able to encrypt 5 words correctly.  This means that your earnings from the Encryption task will be
+                            (20 × 2 =) 40 minus (5 × 1 =) 5 = 35 tokens.  Hence, in this example, the matched Blue player would earn
+                            (5 × 2 =) 10 tokens, while you would earn 35 tokens.
+                        </p>
+                <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Back</button>
+                <button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Next</button>
+            </div>
+
+            <div class="tab-pane" id="part3" role="tabpanel" aria-labelledby="part3-tab">
+                <div class="card-header bg-transparent mainheader" >
+                    <h3 class="card-title font-weight-bold">Encryption Task Understanding Check</h3>
+                </div>
+                <br />
+                To check you have understood the instructions, please answer the following questions. You may go back and read the instructions as many times as you want.
+                <br />
+                {{ formfields }}
+                <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Back</button>
+                <button class="nexttab btn-primary btn next">Next</button>
+            </div>
+        </div>
+    </body>
+{% endblock %}

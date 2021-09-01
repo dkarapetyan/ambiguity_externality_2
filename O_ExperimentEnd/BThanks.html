@@ -1,0 +1,28 @@
+{{ block title }}
+    Thank You!
+{{ endblock }}
+
+{{ block content }}
+<p>Thank you for your participation!</p>
+<p>The computer program has randomly chosen <b>Part {{ player.participant.random_part }} </b> to compute your bonus
+    payments.
+</p>
+<p>
+    You correctly encrypted {{ player.participant.performance_final }} words in Part
+    {{ player.participant.random_part }}. Your bonus payment for the encryption task will thus be
+    <b>{{player.participant.payoff_final}} tokens</b>.
+</p>
+<p>
+    One token is equal to £0.05.
+</p>
+<p>
+    You may receive an additional bonus payment depending on the decision the yellow player you were paired with
+    made in either Part 1 or Part 2.
+</p>
+<p>
+    <b>You have now completed the study, and your bonus payments will be processed within 21 days.</b>
+</p>
+
+    {% next_button %}
+
+{{ endblock }}

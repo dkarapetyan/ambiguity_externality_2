@@ -1,0 +1,17 @@
+{% block title %}
+    Encryption Task Payoff Choice
+{% endblock %}
+{% block content %}
+    <p>
+        You will now choose between two different payoff schemes. The first payoff scheme decreases your matched
+        Yellow player’s earnings the better you perform in the task. The second payoff scheme has no effect on your
+        matched Yellow player’s earnings the better you perform.
+    </p>
+    {{ formfields }}
+    <button class="nexttab btn-primary btn next">Next</button>
+    <div class="row">
+        <div class="col-md-12" align="right">
+            {% next_button %}
+        </div>
+    </div>
+{% endblock %}

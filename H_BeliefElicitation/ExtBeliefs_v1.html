@@ -1,0 +1,30 @@
+{{ block title }}
+    Encryption Task Survey
+{{ endblock }}
+{{ block content }}
+<style>
+    .buttonred {
+        background-color: red;
+        border: none;
+        color: white;
+        font-weight: bold;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+}
+</style>
+<p>
+    Note that your earnings in this task were based on your performance and the performance of your matched Blue player.
+    Remember that for each word the Blue player encrypted correctly, your Earnings were reduced by 1 token.
+</p>
+    {{ formfield 'earnings_guess' }}
+
+    {{ formfield 'externality_guess' }}
+
+<div align="center">
+    <button class="buttonred" value="true" name="submit">SUBMIT</button>
+</div>
+
+{{ endblock }}

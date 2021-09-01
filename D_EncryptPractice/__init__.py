@@ -10,8 +10,8 @@ class Constants(BaseConstants):
     fixed_amount = 0.8
     letters_per_word = 5
     use_timeout = True
-    seconds_per_entr = 120
-    seconds_per_period = 120
+    seconds_per_entr = 60
+    seconds_per_period = 60
 
 
 class Subsession(BaseSubsession):

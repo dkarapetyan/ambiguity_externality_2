@@ -1,0 +1,48 @@
+{{ block title }}
+    Encryption Task Survey
+{{ endblock }}
+{{ block content }}
+<style>
+    .buttonred {
+        background-color: red;
+        border: none;
+        color: white;
+        font-weight: bold;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+}
+</style>
+<p>
+    {{ if player.participant.v2_treatment }}
+        Note that your earnings in this task were based on your performance and the performance of your matched Blue
+        player <b>only if they chose</b> the payoff scheme that would decrease your earnings. Remember that if they chose
+        this payoff scheme, for each word the Blue player encrypted correctly, your earnings were reduced by 1 token.
+    {{ else }}
+        Note that your earnings in this task were based on your performance and the performance of your matched
+        Blue player only if the computer program assigned the payoff scheme to the Blue player that would decrease
+        your earnings. Remember that in this payoff scheme was assigned to your matched Blue player, for each word
+        the Blue player encrypted correctly, your earnings were reduced by 1 token.
+    {{ endif }}
+</p>
+<p>
+    Please answer the following question about the blue player you were randomly paired with:
+</p>
+<p>
+    {{ if player.participant.v2_treatment }}
+        Do you think your matched Blue player chose the payoff scheme that would decrease your earnings?
+    {{ else }}
+        Do you think the computer program assigned the payoff scheme that would decrease your earnings to
+        the Blue player you were matched with?
+    {{ endif }}
+</p>
+
+{{ formfield 'externality_bool' }}
+
+<div align="center">
+    <button class="buttonred" value="true" name="submit">SUBMIT</button>
+</div>
+
+{{ endblock }}
