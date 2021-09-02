@@ -7,8 +7,8 @@
 {% block content %}
 
  {{ if session.config.name == "perp" }}
-    <h4><b>Part 1: Encryption Task Earnings</b></h4>
-    <p>Your earnings are {{  player.tokens }} tokens in this encryption task.</p>
+    <h4><b>Part {{ player.round_number }}: Encryption Task Earnings</b></h4>
+    <p>Your earnings are {{ player.tokens }} tokens in this encryption task.</p>
 
   {{ else }}
     <h4><b>Encryption Task Earnings</b></h4>
@@ -16,10 +16,10 @@
 
  {{ endif }}
 
-          <div class="row">
+<div class="row">
     <div class="col-md-12" align="right">
         {% next_button %}
-        </div>
+    </div>
 </div>
 
 {% endblock %}

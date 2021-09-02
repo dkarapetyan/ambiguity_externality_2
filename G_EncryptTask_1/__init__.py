@@ -37,11 +37,12 @@ class Player(BasePlayer):
     bonus_question = models.CurrencyField(initial=0)
     final = models.CurrencyField(initial=0)
     tokens = models.FloatField(initial=0)
-    blue_ext = models.IntegerField(initial=0)
+    blue_ext = models.IntegerField()
     externality = models.IntegerField(initial=0)
     initial_ans = models.StringField(initial="")
     num_wrong = models.IntegerField(initial=0)
     inst_path = models.StringField()
+    externality_imposed = models.IntegerField()
 
     # Perpetrator with externality
     p_ext_q1 = models.IntegerField(
@@ -174,9 +175,9 @@ class Hidden(Page):
         if player.session.config['name'] == "perp":
             if player.round_number == 1:
                 player.blue_ext = random.randint(0, 1)
+                player.participant.blue_ext = player.blue_ext
             if player.round_number == 2:
-                player.blue_ext = 1 - player.blue_ext
-        print(player.round_number, player.blue_ext)
+                player.blue_ext = 1-player.participant.blue_ext
 
 
 class EarningsInstructions_p_noext(Page):
@@ -338,10 +339,13 @@ class Complete(Page):
             else:
                 if player.participant.v2_treatment:
                     player.externality = int(Constants.rows[matchrow]['J_EncryptTask_2.1.player.performance'])*(1-int(Constants.rows[matchrow]['J_EncryptTask_2.1.player.ext_choice']))
+                    player.participant.externality_imposed = 1 - int(Constants.rows[matchrow]['J_EncryptTask_2.1.player.ext_choice'])
                 else:
                     player.externality = int(Constants.rows[matchrow]['G_EncryptTask_1.1.player.performance'])*(
                             1-int(Constants.rows[matchrow]['G_EncryptTask_1.1.player.blue_ext']))
                     player.externality_imposed = 1-int(Constants.rows[matchrow]['G_EncryptTask_1.1.player.blue_ext'])
+                    player.participant.externality_imposed = 1-int(Constants.rows[matchrow]['G_EncryptTask_1.1.player.blue_ext'])
+                player.participant.externality = player.externality
             player.participant.payoff_final = max(player.tokens - player.externality, 0)
         else:
             if player.blue_ext == 0:
