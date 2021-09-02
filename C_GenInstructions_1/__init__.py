@@ -32,10 +32,10 @@ class BlueInstructions(Page):
         return player.session.config['name'] == "perp"
 
 
-class YellowRole(Page):
+class YellowInstructions(Page):
     @staticmethod
     def is_displayed(player: Player):
         return "victim" in player.session.config['name']
 
 
-page_sequence = [BlueInstructions, YellowRole]
+page_sequence = [BlueInstructions, YellowInstructions]

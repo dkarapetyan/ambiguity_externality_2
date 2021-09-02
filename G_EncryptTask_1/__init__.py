@@ -339,7 +339,9 @@ class Complete(Page):
                 if player.participant.v2_treatment:
                     player.externality = int(Constants.rows[matchrow]['J_EncryptTask_2.1.player.performance'])*(1-int(Constants.rows[matchrow]['J_EncryptTask_2.1.player.ext_choice']))
                 else:
-                    player.externality = int(Constants.rows[matchrow]['G_EncryptTask_1.1.player.performance'])
+                    player.externality = int(Constants.rows[matchrow]['G_EncryptTask_1.1.player.performance'])*(
+                            1-int(Constants.rows[matchrow]['G_EncryptTask_1.1.player.blue_ext']))
+                    player.externality_imposed = 1-int(Constants.rows[matchrow]['G_EncryptTask_1.1.player.blue_ext'])
             player.participant.payoff_final = max(player.tokens - player.externality, 0)
         else:
             if player.blue_ext == 0:

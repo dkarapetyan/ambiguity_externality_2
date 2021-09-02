@@ -50,6 +50,10 @@ class ExtBeliefs_v1(Page):
     form_model = "player"
     form_fields = ['earnings_guess', 'externality_guess']
 
+    @staticmethod
+    def app_after_this_page(player: Player, upcoming_apps):
+        return "K_Attention_3"
+
 
 class ExtBeliefs_v2_1(Page):
     @staticmethod
@@ -57,6 +61,11 @@ class ExtBeliefs_v2_1(Page):
         return player.session.config['name'] == "victim2"
     form_model = "player"
     form_fields = ['externality_bool']
+
+    @staticmethod
+    def app_after_this_page(player: Player, upcoming_apps):
+        if player.externality_bool == 0:
+            return "K_Attention_3"
 
 
 class ExtBeliefs_v2_2(Page):
@@ -68,7 +77,6 @@ class ExtBeliefs_v2_2(Page):
 
     @staticmethod
     def app_after_this_page(player: Player, upcoming_apps):
-        if "victim" in player.session.config['name']:
-            return "K_Attention_3"
+        return "K_Attention_3"
 
 page_sequence = [ExtBeliefs_v1, ExtBeliefs_v2_1, ExtBeliefs_v2_2]
