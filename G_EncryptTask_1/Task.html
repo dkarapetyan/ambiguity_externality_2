@@ -190,7 +190,7 @@ td {
 
 
 <script>
-    letters_per_word = {{Constants.letters_per_word}};
+    letters_per_word = {{Constants.letters_per_word}}
     alphabet = genCharArray('A', 'Z');
     legend_letters = alphabet;
     word_letters = alphabet;
@@ -261,7 +261,7 @@ td {
         var errors = 0;
         for (var i = 0; i < letters_per_word; i++) {
             answers[i] = Number(document.getElementById("task_code_"+i).value);
-            if (dict[word[i]] !== answers[i]) {errors = 1};
+            if (dict[word[i]] !== answers[i]) {errors = 1}
         }
         return errors;
     }

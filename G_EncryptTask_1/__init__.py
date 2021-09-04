@@ -319,14 +319,14 @@ class Task(Page):
 class Complete(Page):
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
-        if player.round_number == 1:
-            player.participant.performance1 = player.performance
-            player.participant.externality1 = 1-player.blue_ext
-        if player.round_number == 2:
-            player.participant.performance2 = player.performance
-            player.participant.externality2 = 1-player.blue_ext
-
-        player.tokens = (2 - (player.blue_ext * 0.5)) * player.performance
+        if player.session.config['name'] == "perp":
+            if player.round_number == 1:
+                player.participant.performance1 = player.performance
+                player.participant.externality1 = 1-player.blue_ext
+            if player.round_number == 2:
+                player.participant.performance2 = player.performance
+                player.participant.externality2 = 1-player.blue_ext
+            player.tokens = (2 - (player.blue_ext * 0.5)) * player.performance
 
         if "victim" in player.session.config['name']:
             matchrow = random.randint(0, (len(Constants.rows) - 1))
@@ -345,7 +345,7 @@ class Complete(Page):
                             1-int(Constants.rows[matchrow]['G_EncryptTask_1.1.player.blue_ext']))
                     player.externality_imposed = 1-int(Constants.rows[matchrow]['G_EncryptTask_1.1.player.blue_ext'])
                     player.participant.externality_imposed = 1-int(Constants.rows[matchrow]['G_EncryptTask_1.1.player.blue_ext'])
-                player.participant.externality = player.externality
+            player.participant.externality = player.externality
             player.participant.payoff_final = max(player.tokens - player.externality, 0)
         else:
             if player.blue_ext == 0:

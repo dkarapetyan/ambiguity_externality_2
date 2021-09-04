@@ -72,6 +72,10 @@ class BlueIntro2(Page):
     def is_displayed(player: Player):
         return player.session.config['name'] == "perp"
 
+class BlueIntro3(Page):
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.session.config['name'] == "perp"
 
 class Yellow1Intro(Page):
     @staticmethod
@@ -85,4 +89,4 @@ class Yellow2Intro(Page):
         return player.session.config['name'] != "perp"
 
 
-page_sequence = [Welcome, Consent, BlockDropouts, BlueIntro, BlueIntro2, Yellow1Intro, Yellow2Intro]
+page_sequence = [Welcome, Consent, BlockDropouts, BlueIntro, BlueIntro2, BlueIntro3, Yellow1Intro, Yellow2Intro]

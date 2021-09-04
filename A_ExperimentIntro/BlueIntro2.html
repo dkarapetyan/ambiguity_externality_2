@@ -4,20 +4,21 @@
 {{ block content }}
 
 <p>
-    <br><b><u>How will payment be made?</u></b>
-    <br>You will receive the completion payment of {{ session.config.participation_fee }} and your bonus payment
-    <b>only if you complete all parts</b> of the study.<br>
-    <br>Once all participants complete this study, the applicable bonus payment will be made via the Prolific platform within a maximum of 21 days from the conclusion of the
-       study.<br>
-
-    <br><b><u>Please note!</u></b>
-  <br>There will be several <b>Attention Check</b> questions throughout this study meant to test whether you are
-    paying attention.
-    <p><b>If you fail to correctly complete one or more of these Attention Check questions, you may
-    not be paid.</b></p>
-<p>Finally, please note that this research <b>does not employ deception</b>. This is regulated by the researchers’
-institutional ethics committees.</p>
-
+    <b> <u>How much payment will I receive for my participation?</u></b>
+    <br>You will receive {{ session.config.participation_fee }} as the participation fee for completing the study.<br>
+    <br>You will also have the opportunity to earn additional money.</br>
+    <br>
+    In this study, we will be using a currency called “Tokens”. These tokens will determine your <b>additional
+    earnings</b>, which will depend on your performance and the decisions you make. For each token you earn, you will
+    be paid £0.05.
+    </br>
+    <br>At the end of the study, the computer program will <b>randomly pick Part 1, Part 2, or Part 3</b>
+    to determine your bonus payment.  Since nobody knows which part will be selected for payment,
+    you should pay close attention to all parts as your decisions may determine your earnings.</br>
+    <br>Your total payment from this study will be equal to the participation fee plus your additional earnings.</br>
+    <br>Let’s say, for example, that the computer program chose the additional earnings from Part 2. If you earned
+    100 tokens in total for the main task in Part 2, you would be paid £5 (100*0.05) in additional earnings.
+    Your total payment would therefore be £8.75 (£3.75 + £5).</br>
 </p>
 
     {{ formfields }}

@@ -43,13 +43,9 @@ class Hidden(Page):
             player.participant.performance_final = int([player.participant.performance1, player.participant.performance2, player.participant.performance3][player.participant.random_part-1])
 
 
-class Y1Thanks(Page):
+class YThanks(Page):
     def is_displayed(player: Player):
-        return player.session.config['name'] == "victim1"
-
-class Y2Thanks(Page):
-    def is_displayed(player: Player):
-        return player.session.config['name'] == "victim2"
+        return "victim" in player.session.config['name']
 
 
 class BThanks(Page):
@@ -57,4 +53,4 @@ class BThanks(Page):
         return player.session.config['name'] == "perp"
 
 
-page_sequence = [Hidden, BThanks, Y1Thanks, Y2Thanks]
+page_sequence = [Hidden, BThanks, YThanks]

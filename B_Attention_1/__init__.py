@@ -41,6 +41,6 @@ class AttentionCheck(Page):
         player.participant.failedattentioncheck = 0
         if player.q1 != 2:
             player.participant.failedattentioncheck += 1
-
+        print(player.participant.failedattentioncheck)
 
 page_sequence = [AttentionCheck]

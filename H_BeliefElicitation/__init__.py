@@ -79,4 +79,5 @@ class ExtBeliefs_v2_2(Page):
     def app_after_this_page(player: Player, upcoming_apps):
         return "K_Attention_3"
 
+
 page_sequence = [ExtBeliefs_v1, ExtBeliefs_v2_1, ExtBeliefs_v2_2]

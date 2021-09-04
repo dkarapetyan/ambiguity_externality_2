@@ -4,69 +4,26 @@
 {{ block content }}
 
 {{ if player.information and session.config.name == "victim1" }}
-<p>
-    The blue player you were paired with <b>decreased</b> your earnings by <b>{{ player.participant.externality }}
-    token(s)</b> when exerting effort in the encryption task.
-</p>
+    <p>The blue player you were paired with <b>decreased</b> your earnings by <b>{{ player.participant.externality }}
+    token(s)</b> when exerting effort in the encryption task.</p>
 {{ endif }}
 
-{{ if session.config.name == "victim2" and not player.participant.v2_treatment  }}
-    {{ if player.participant.externality_imposed == 1 }}
-        <p>
-            Your earnings are {{ player.participant.payoff_final }} tokens.
-        </p>
-        <p>
-            The Blue player completed the same encryption task as you.
-        </p>
-        <p>
-            The Blue player decreased your encryption task earnings by {{ player.participant.externality }} token(s).
-        </p>
-        <p>
-            The computer program assigned the payoff scheme that would decrease your earnings.
-        </p>
+{{ if session.config.name == "victim2" }}
+    {{ if player.participant.v2_treatment }}
+        <p>Your earnings are {{ player.participant.payoff_final }} tokens.</p><p>The Blue player completed the same
+        encryption task as you.</p><p>The Blue player decreased your encryption task earnings by
+        {{ player.participant.externality }} token(s).</p><p>The Blue player <b>chose</b> the payoff scheme that
+        <b>would {{ if player.participant.externality_imposed == 0 }}not {{ endif }}decrease your earnings</b>.</p>
     {{ else }}
-        <p>
-            Your earnings are {{ player.participant.payoff_final }} tokens.
-        </p>
-        <p>
-            The Blue player completed the same encryption task as you.
-        </p>
-        <p>
-            The Blue player decreased your encryption task earnings by 0 token(s).
-        </p>
-        <p>
-            The computer program assigned the payoff scheme that would not decrease your earnings.
-        </p>
-    {{ endif }}
-{{ else }}
-        {{ if player.participant.externality_imposed == 1 }}
-        <p>
-            Your earnings are {{ player.participant.payoff_final }} tokens.
-        </p>
-        <p>
-            The Blue player completed the same encryption task as you.
-        </p>
-        <p>
-            The Blue player decreased your encryption task earnings by {{ player.participant.externality }} token(s).
-        </p>
-        <p>
-            The Blue player <b>chose</b> the payoff scheme that <b>would decrease your earnings</b>.
-        </p >
-    {{ else }}
-        <p>
-            Your earnings are {{ player.participant.payoff_final }} tokens.
-        </p>
-        <p>
-            The Blue player completed the same encryption task as you.
-        </p>
-        <p>
-            The Blue player decreased your encryption task earnings by 0 tokens.
-        </p>
-        <p>
-            The Blue player <b>chose</b> the payoff scheme that <b>would not decrease your earnings</b>.
-        </p>
+        <p>Your earnings are {{ player.participant.payoff_final }} tokens.</p><p>The Blue player completed the same
+        encryption task as you.</p><p>The Blue player decreased your encryption task earnings by
+        {{ player.participant.externality }} token(s).</p><p>The computer program assigned the payoff scheme that
+        would {{ if player.participant.externality_imposed == 0 }}not {{ endif }}decrease your earnings.</p>
     {{ endif }}
 {{ endif }}
+
+
+
 
 <div class="row">
     <div class="col-md-12" align="right">
