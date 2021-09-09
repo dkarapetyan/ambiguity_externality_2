@@ -3,9 +3,19 @@
 {{ endblock }}
 {{ block content }}
 
-{{ if player.information and session.config.name == "victim1" }}
-    <p>The blue player you were paired with <b>decreased</b> your earnings by <b>{{ player.participant.externality }}
-    token(s)</b> when exerting effort in the encryption task.</p>
+{{ if session.config.name == "victim1" }}
+    {{ if player.information }}
+        <p>Your additional earnings for the Encryption task are {{ player.participant.payoff_final }} tokens.</p>
+        <p>Your matched Blue player completed the same encryption task as you. For every word the Blue player encrypted
+            correctly, however, 1 token was taken away from your earnings.</p>
+        <p><b>Your matched Blue player decreased your additional earnings by {{
+            player.participant.externality }} token(s) when exerting effort in the encryption task.</b></p>
+    {{ else }}
+        <p>Your additional earnings for the Encryption task are {{ player.participant.payoff_final }} tokens.</p>
+        <p>Your matched Blue player completed the same encryption task as you. For every word the Blue player encrypted
+            correctly, however, 1 token was taken away from your earnings.</p>
+
+    {{ endif }}
 {{ endif }}
 
 {{ if session.config.name == "victim2" }}
@@ -13,12 +23,12 @@
         <p>Your earnings are {{ player.participant.payoff_final }} tokens.</p><p>The Blue player completed the same
         encryption task as you.</p><p>The Blue player decreased your encryption task earnings by
         {{ player.participant.externality }} token(s).</p><p>The Blue player <b>chose</b> the payoff scheme that
-        <b>would {{ if player.participant.externality_imposed == 0 }}not {{ endif }}decrease your earnings</b>.</p>
+        <b>would {{ if player.participant.externality_imposed == 0 }}NOT {{ endif }}decrease your earnings</b>.</p>
     {{ else }}
         <p>Your earnings are {{ player.participant.payoff_final }} tokens.</p><p>The Blue player completed the same
         encryption task as you.</p><p>The Blue player decreased your encryption task earnings by
-        {{ player.participant.externality }} token(s).</p><p>The computer program assigned the payoff scheme that
-        would {{ if player.participant.externality_imposed == 0 }}not {{ endif }}decrease your earnings.</p>
+    {{ player.participant.externality }} token(s).</p><p>The <b>computer program</b> assigned the payoff scheme that
+    <b>would {{ if player.participant.externality_imposed == 0 }}NOT {{ endif }}decrease your earnings</b>.</p>
     {{ endif }}
 {{ endif }}
 

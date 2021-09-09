@@ -1,21 +1,38 @@
 {{ block title }}
-Decision Task Instructions
+ Decision Task Instructions
 {{ endblock }}
 {{ block content }}
 
-<p>The decision task will be conducted as follows:</p>
+{{ if session.config.name == "victim1" }}
+<p>Thank you for completing the Encryption task. Recall that in that task, you were matched with a Blue player whose additional earnings decreased your additional earnings.
+    We now turn to the Decision task.</p>
+<p>In this task, <b>you (as the Yellow player)</b> are matched with the <b>same Blue player</b> you were matched with for the Encryption task. You will now be given <b>30 tokens</b>,
+    while your matched Blue player will be given <b>15 tokens</b>. However, you now have an opportunity to change their earnings.
+<p>You can transfer tokens to, or take away tokens from, your matched Blue player. You can transfer a <b>positive amount</b> in 1 token increments <b>up to a total
+    of 30 tokens</b>, or you can take away/transfer a <b>negative amount</b> in 1 token increments <b>up to a total
+    of 15 tokens</b>. Positive and negative transfer examples are provided on the next screen.</p>
+{{ endif }}
 
-<p>You are now endowed with <b>30 tokens</b>, and the blue player is now endowed with <b>15 tokens</b>.</p>
+{{ if session.config.name == "victim2" }}
+    {{ if player.participant.v2_treatment }}
+<p>Thank you for completing the Encryption task. Recall that in that task, you were matched with a Blue player who
+    chose the payoff scheme that would {{ if player.participant.externality_imposed == 0 }}NOT {{ endif }}decrease your earnings. We now turn to the Decision task.</p>
+<p>In this task, <b>you (as the Yellow player)</b> are matched with the <b>same Blue player</b> you were matched with for the Encryption task. You will now be given <b>30 tokens</b>,
+    while your matched Blue player will be given <b>15 tokens</b>. However, you now have an opportunity to change their earnings.
+<p>You can transfer tokens to, or take away tokens from, your matched Blue player. You can transfer a <b>positive amount</b> in 1 token increments <b>up to a total
+    of 30 tokens</b>, or you can take away/transfer a <b>negative amount</b> in 1 token increments <b>up to a total
+    of 15 tokens</b>. Positive and negative transfer examples are provided on the next screen.</p>
+    {{ else }}
+<p>Thank you for completing the Encryption task. Recall that in that task, the computer program assigned the payoff scheme that would
+    {{ if player.participant.externality_imposed == 0 }}NOT {{ endif }}decrease your earnings. We now turn to the Decision task.</p>
+<p>In this task, <b>you (as the Yellow player)</b> are matched with the <b>same Blue player</b> you were matched with for the Encryption task. You will now be given <b>30 tokens</b>,
+    while your matched Blue player will be given <b>15 tokens</b>. However, you now have an opportunity to change their earnings.
+<p>You can transfer tokens to, or take away tokens from, your matched Blue player. You can transfer a <b>positive amount</b> in 1 token increments <b>up to a total
+    of 30 tokens</b>, or you can take away/transfer a <b>negative amount</b> in 1 token increments <b>up to a total
+    of 15 tokens</b>. Positive and negative transfer examples are provided on the next screen.</p>
+    {{ endif }}
+{{ endif }}
 
-<p>As the <b>yellow player</b>, you will now decide what portion, if any, of this <b>30 tokens</b> to transfer to the
-    blue player you were paired at the beginning of this study. You can also transfer a <b>negative</b> amount: i.e.,
-    take up to <b>15 tokens</b> from the blue player in <b>5 token</b> increments.</p>
-
-<p>Your take home earnings from this study will be the sum of your participation fee for completion of the study, your encryption task bonus payment,
-    and the bonus payment from this decision exercise.</p>
-
-<p>Likewise, the earnings of the blue player will be the sum of their participation fee for completion of the study, their encryption task bonus payment,
-    and their bonus payment outcome from this decision exercise.</p>
 
          <div class="row">
     <div class="col-md-12" align="right">

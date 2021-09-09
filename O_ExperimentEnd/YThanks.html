@@ -4,9 +4,9 @@
 
 {{ block content }}
     <p>Thank you for your participation!</p>
-    <p>Your earnings for the encryption task are <b>{{ player.participant.payoff_final }} tokens</b>.</p>
-    <p>Your earnings for the decision task are <b>{{ player.participant.dictator }} tokens</b>.</p>
-    <p>Recall that one token is equal to £0.05. Therefore, your total payment is </p>
+    <p>Your earnings for the Encryption task are <b>{{ player.participant.payoff_final }} tokens</b>.</p>
+    <p>Your earnings for the Decision task are <b>{{ player.participant.dictator }} tokens</b>.</p>
+    <p>Recall that one token is equal to £0.05. Therefore, your total additional earnings will be <b>{{ player.participant.payoff_total }}</b>.</p>
     <p><b>You have now completed the study, and your payment will be processed within 21 days.</b></p>
 
 {% next_button %}

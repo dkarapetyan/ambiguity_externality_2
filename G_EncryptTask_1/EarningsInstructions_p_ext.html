@@ -25,30 +25,35 @@
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane active show" id="part1" role="tabpanel" aria-labelledby="part1-tab">
                 <div class="card-header bg-transparent mainheader" >
-                    <h3 class="card-title font-weight-bold">Part {{ player.round_number }}: Encryption Task Earnings Instructions</h3>
+                    <h1 class="card-title font-weight-bold">Part {{ player.round_number }}: Encryption Task Earnings
+                        Instructions</h1>
                 </div>
                 <p>
-                    Both Blue and Yellow participants engage in the Encryption task for their additional earnings. The Encryption
-                    task lasts for <b>6 minutes</b>, and you are free to make as much money as you can.   For each word encrypted
-                    correctly, you will earn <b>2 tokens</b>.  You will earn nothing for any word encrypted incorrectly. Note that
-                    both Yellow and Blue players face the same conditions. So, each participant earns 2 tokens for each word
-                    encrypted correctly.
+                   Both Blue and Yellow players engage in the encryption task for their additional earnings. For each
+                    word encrypted correctly, you will earn 2 tokens. You are free to earn as many tokens as
+                    you can during the 6-minute encryption task.
+                    You will earn nothing for any word encrypted incorrectly. Note that both Yellow and Blue players
+                    face the same conditions. So, <b>each player earns
+                    2 tokens for each word encrypted correctly</b>.
                 </p>
                 <p>
-                    However, there is one additional condition that depends on the roles. Each word <b>you (as the Blue player)</b>
-                    encrypt will <b>take away 1 token</b> from the earnings of the Yellow player you will be matched with. But, the
-                    reverse is not true: the number of words encrypted correctly by the Yellow player has no effect on the earnings
+                    However, there is one additional condition that depends on the roles. For <b>each word you (as the
+                    Blue player) encrypt correctly</b>, your matched Yellow player <b>loses 1 token</b> from their
+                    earnings. But, the reverse is not true: the number of words encrypted correctly by the Yellow player has no effect on the earnings
                     of the Blue player.
                 </p>
                 <p>
-                    As an example, if <b>you (as the Blue player)</b> encrypt 20 words correctly, your counterpart Yellow player’s
-                    earnings will be decreased by 20 tokens.
+                As an example, suppose both you and your matched Yellow player encrypt 20 words correctly.  Your
+                    additional earnings for this task would then equal to (20*2=) 40 tokens. But, your counterpart Yellow player’s earnings will be decreased
+                    by the number of words you encrypted correctly. This means that your counterpart Yellow player’s additional
+                    earnings would equal to (20*2=) 40 minus (20*1=) 20 = 20 tokens.
                 </p>
                 <button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Next</button>
             </div>
             <div class="tab-pane" id="part3" role="tabpanel" aria-labelledby="part3-tab">
                 <div class="card-header bg-transparent mainheader" >
-                    <h3 class="card-title font-weight-bold">Part {{ player.round_number }}: Encryption Task Understanding Check</h3>
+                    <h1 class="card-title font-weight-bold">Part {{ player.round_number }}: Encryption Task
+                        Understanding Check</h1>
                 </div>
                 <br />
                 To check you have understood the instructions, please answer the following questions. You may go back and read the instructions as many times as you want.

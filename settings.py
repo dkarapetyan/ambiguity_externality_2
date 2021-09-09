@@ -30,7 +30,8 @@ PARTICIPANT_FIELDS = ['nettokens',
                       'failedattentioncheck',
                       'bluematch',
                       'v2_treatment',
-                      'blue_ext'
+                      'blue_ext',
+                      'payoff_total'
                       ]
 
 SESSION_CONFIGS = [

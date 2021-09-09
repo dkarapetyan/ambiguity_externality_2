@@ -7,11 +7,11 @@
 {% block content %}
 
  {{ if session.config.name == "perp" }}
-    <h4><b>Part {{ player.round_number }}: Encryption Task Earnings</b></h4>
+    <h1>Part {{ player.round_number }}: Encryption Task Earnings</h1>
     <p>Your earnings are {{ player.tokens }} tokens in this encryption task.</p>
 
   {{ else }}
-    <h4><b>Encryption Task Earnings</b></h4>
+    <h1>Encryption Task Earnings</h1>
     <br><p>Your earnings are {{ player.tokens }} token(s).</p>
 
  {{ endif }}

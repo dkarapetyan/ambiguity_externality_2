@@ -7,12 +7,12 @@
 {% block content %}
 
     {{ if session.config.name == "perp" }}
-    <h3>Part {{ player.round_number }}: Encryption Task Complete</h3>
-    <br><p>You have completed the encryption task of Part {{ player.round_number }}, and your token earnings will be displayed on the
+    <h1>Part {{ player.round_number }}: Encryption Task Complete</h1>
+    <br><p>You have completed Part {{ player.round_number }}, and your earnings will be displayed on the
     next page.</p>
 
     {{ else }}
-     <h3>Encryption Task Complete</h3>
+     <h1>Encryption Task Complete</h1>
      <br><p>You have completed the encryption task, and your  earnings will be displayed on the
     next page.</br></p>
 

@@ -39,8 +39,7 @@ def creating_session(subsession):
 class InfoTreatment(Page):
     @staticmethod
     def is_displayed(player: Player):
-        return player.session.config['name'] == "victim2" or (player.information and player.session.config['name'] ==
-                                                              "victim1")
+        return "victim" in player.session.config['name']
 
 
 page_sequence = [InfoTreatment]

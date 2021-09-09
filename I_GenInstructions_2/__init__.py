@@ -26,14 +26,9 @@ class Player(BasePlayer):
 
 
 # PAGES
-class EndPart2(Page):
-    def is_displayed(player: Player):
-        return player.session.config['name'] == "perp"
-
-
 class BlueInstructions_2(Page):
     def is_displayed(player: Player):
         return player.session.config['name'] == "perp"
 
 
-page_sequence = [EndPart2, BlueInstructions_2]
+page_sequence = [BlueInstructions_2]

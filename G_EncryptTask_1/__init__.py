@@ -133,7 +133,7 @@ class Player(BasePlayer):
     )
     v2_c_q5 = models.IntegerField(
         label="How many tokens will you lose for each word you encrypt correctly if the computer program assigned "
-              "the payoff scheme that decreases your earnings to your matched Blue player?",
+              "the payoff scheme that could have decreased your earnings?",
         choices=[[1, "1"], [2, "2"], [3, "4"]],
         widget=widgets.RadioSelect
     )
@@ -160,7 +160,8 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     v2_t_q5 = models.IntegerField(
-        label="How many tokens will you lose for each word you encrypt correctly if your matched Blue player chooses the payoff scheme that decreases your earnings? ",
+        label="How many tokens will you lose for each word you encrypt correctly if your matched Blue player chose "
+              "the payoff scheme that decreases your earnings? ",
         choices=[[1, "1"], [2, "2"], [3, "4"]],
         widget=widgets.RadioSelect
     )
@@ -361,6 +362,11 @@ class Earnings(Page):
             return "H_BeliefElicitation"
 
 
+class GenInstructions_2(Page):
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.round_number==1
+
 page_sequence = [
     Hidden,
     EarningsInstructions_p_ext,
@@ -371,5 +377,6 @@ page_sequence = [
     BeginEncryptionTask,
     Task,
     Complete,
-    Earnings
+    Earnings,
+    GenInstructions_2
 ]

@@ -30,12 +30,12 @@ class Player(BasePlayer):
 
 
 # PAGES
-class Introduction(Page):
+class Instructions(Page):
     def is_displayed(player: Player):
         return "victim" in player.session.config['name']
 
 
-class Instructions(Page):
+class Examples(Page):
     def is_displayed(player: Player):
         return "victim" in player.session.config['name']
 
@@ -58,4 +58,4 @@ class Results(Page):
     pass
 
 
-page_sequence = [Introduction, Instructions, Offer, Results]
+page_sequence = [Instructions, Examples, Offer, Results]

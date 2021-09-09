@@ -15,6 +15,7 @@ class Constants(BaseConstants):
     num_rounds = 1
 
 
+
 class Subsession(BaseSubsession):
     pass
 
@@ -38,9 +39,12 @@ class Hidden(Page):
 
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
+        print(player.session.config['name'])
         if player.session.config['name'] == "perp":
             player.participant.payoff_final = [player.participant.payoff_ext, player.participant.payoff_noext, player.participant.payoff_choice][player.participant.random_part-1]
             player.participant.performance_final = int([player.participant.performance1, player.participant.performance2, player.participant.performance3][player.participant.random_part-1])
+        if "victim" in player.session.config['name']:
+            player.participant.payoff_total = cu((player.participant.payoff_final + player.participant.dictator) * 0.05)
 
 
 class YThanks(Page):
@@ -48,9 +52,13 @@ class YThanks(Page):
         return "victim" in player.session.config['name']
 
 
+class Redirect(Page):
+    pass
+
+
 class BThanks(Page):
     def is_displayed(player: Player):
         return player.session.config['name'] == "perp"
 
 
-page_sequence = [Hidden, BThanks, YThanks]
+page_sequence = [Hidden, BThanks, YThanks, Redirect]
