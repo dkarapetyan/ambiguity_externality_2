@@ -1,12 +1,12 @@
 {% extends "global/Page.html" %}
 {% load otree %}
 
-{% block title %}
-{% endblock %}
+{{ block title }}
+Encryption Task Practice Results
+{{ endblock }}
 
-{% block content %}
-    <h1>Encryption Task Practice Results</h1>
-    <br>
+{{ block content }}
+
     <p>Thank you for completing the Encryption task practice. You correctly encrypted {{ player.performance_entr }}
         word(s).</p>
 
@@ -18,4 +18,4 @@
 </div>
 
 
-{% endblock %}
+{{ endblock }}

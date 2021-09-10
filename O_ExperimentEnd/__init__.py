@@ -43,6 +43,7 @@ class Hidden(Page):
         if player.session.config['name'] == "perp":
             player.participant.payoff_final = [player.participant.payoff_ext, player.participant.payoff_noext, player.participant.payoff_choice][player.participant.random_part-1]
             player.participant.performance_final = int([player.participant.performance1, player.participant.performance2, player.participant.performance3][player.participant.random_part-1])
+            player.participant.payoff_pounds = cu(player.participant.payoff_final * 0.05)
         if "victim" in player.session.config['name']:
             player.participant.payoff_total = cu((player.participant.payoff_final + player.participant.dictator) * 0.05)
 

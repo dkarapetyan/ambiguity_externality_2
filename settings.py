@@ -31,7 +31,8 @@ PARTICIPANT_FIELDS = ['nettokens',
                       'bluematch',
                       'v2_treatment',
                       'blue_ext',
-                      'payoff_total'
+                      'payoff_total',
+                      'payoff_pounds',
                       ]
 
 SESSION_CONFIGS = [
