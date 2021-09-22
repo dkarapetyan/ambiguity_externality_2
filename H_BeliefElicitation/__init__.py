@@ -64,7 +64,7 @@ class ExtBeliefs_v2_1(Page):
 
     @staticmethod
     def app_after_this_page(player: Player, upcoming_apps):
-        if player.externality_bool == 0:
+        if player.externality_bool == 2:
             return "K_Attention_3"
 
 

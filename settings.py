@@ -54,7 +54,7 @@ SESSION_CONFIGS = [
                       'K_Attention_3',
                       'L_Treatment',
                       'M_Dictator',
-                      'N_Fairness',
+                      'N_Survey',
                       'O_ExperimentEnd'
                       ],
     ),
@@ -76,7 +76,7 @@ SESSION_CONFIGS = [
                       'K_Attention_3',
                       'L_Treatment',
                       'M_Dictator',
-                      'N_Fairness',
+                      'N_Survey',
                       'O_ExperimentEnd'
                       ],
     ),
@@ -98,7 +98,7 @@ SESSION_CONFIGS = [
                       'K_Attention_3',
                       'L_Treatment',
                       'M_Dictator',
-                      'N_Fairness',
+                      'N_Survey',
                       'O_ExperimentEnd'
                       ],
     ),

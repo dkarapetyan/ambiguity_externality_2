@@ -1,5 +1,5 @@
 {{ block title }}
- Fairness Survey
+ Encryption Task Survey
 {{ endblock }}
 {{ block content }}
 <style>
@@ -72,15 +72,12 @@
 }
 </style>
 <body>
-    {{ if session.config.name == "perp" }}
     <p>
-        From very unfair to very fair, how would you rate the fairness of the study in Part 2?
+        How would you rate the fairness of the Encryption task with the payoff scheme
+        that didn't take away any earnings from your matched Yellow player while giving you a payoff of 1.5 tokens per
+        word encrypted correctly?
     </p>
- {{else}}
-     <p>
-        From very unfair to very fair, how would you rate the fairness of this study?
-    </p>
- {{endif}}
+    <br>
     <div class="range">
         <input class="slider" type="range" min="-2" max="2" value="0" name="fairness">
         <div class="sliderticks">
@@ -89,6 +86,46 @@
             <p><br>Neither fair nor unfair</p>
             <p><br>Somewhat fair</p>
             <p><br>Very fair</p>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <hr>
+    <br>
+     <p>How would you rate the fairness of the Encryption task with the payoff scheme
+        that took away earnings from your matched Yellow player while giving you a payoff of 2 tokens per
+        word encrypted correctly?
+    </p>
+
+    <div class="range">
+        <input class="slider" type="range" min="-2" max="2" value="0" name="fairness">
+        <div class="sliderticks">
+            <p><br>Very unfair</p>
+            <p><br>Somewhat unfair</p>
+            <p><br>Neither fair nor unfair</p>
+            <p><br>Somewhat fair</p>
+            <p><br>Very fair</p>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <p>
+        How would you rate your enjoyment of participating in all the Encryption tasks? Please answer by
+        using the slider below.
+    </p>
+
+    <div class="range">
+        <input class="slider" type="range" min="-2" max="2" value="0" name="enjoyment">
+        <div class="sliderticks">
+            <p><br>Very unenjoyable</p>
+            <p><br>Somewhat unenjoyable</p>
+            <p><br>Neither enjoyable nor unenjoyable</p>
+            <p><br>Somewhat enjoyable</p>
+            <p><br>Very enjoyable</p>
         </div>
     </div>
     <br>

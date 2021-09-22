@@ -5,7 +5,7 @@ doc = """Encryption Practice"""
 
 class Constants(BaseConstants):
     players_per_group = None
-    num_rounds = 1
+    num_rounds = 2
     name_in_url = "encrypt_practice"
     fixed_amount = 0.8
     letters_per_word = 5
@@ -39,13 +39,11 @@ class Player(BasePlayer):
 
 # PAGES
 class Example(Page):
-    pass
+    def is_displayed(player: Player):
+        return player.round_number == 1
 
 
 class TaskEntrainement(Page):
-    def is_displayed(self):
-        return self.round_number == 1
-
     form_model = "player"
     form_fields = ["performance_entr", "mistakes_entr"]
     if Constants.use_timeout:
@@ -63,8 +61,7 @@ class TaskEntrainement(Page):
 
 
 class ResultsEntr(Page):
-    def is_displayed(self):
-        return self.round_number == 1
+    pass
 
 
 page_sequence = [

@@ -347,7 +347,7 @@ class Complete(Page):
                     player.externality_imposed = 1-int(Constants.rows[matchrow]['G_EncryptTask_1.1.player.blue_ext'])
                     player.participant.externality_imposed = 1-int(Constants.rows[matchrow]['G_EncryptTask_1.1.player.blue_ext'])
             player.participant.externality = player.externality
-            player.participant.payoff_final = max(player.tokens - player.externality, 0)
+            player.participant.payoff_final = player.tokens - player.externality
         else:
             if player.blue_ext == 0:
                 player.participant.payoff_ext = player.tokens

@@ -45,7 +45,8 @@ class Hidden(Page):
             player.participant.performance_final = int([player.participant.performance1, player.participant.performance2, player.participant.performance3][player.participant.random_part-1])
             player.participant.payoff_pounds = cu(player.participant.payoff_final * 0.05)
         if "victim" in player.session.config['name']:
-            player.participant.payoff_total = cu((player.participant.payoff_final + player.participant.dictator) * 0.05)
+            player.participant.payoff_total = cu((max(player.participant.payoff_final,
+                                                      0) + player.participant.dictator) * 0.05)
 
 
 class YThanks(Page):
