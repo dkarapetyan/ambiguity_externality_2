@@ -330,6 +330,7 @@ class Complete(Page):
             player.tokens = (2 - (player.blue_ext * 0.5)) * player.performance
 
         if "victim" in player.session.config['name']:
+            player.tokens = 2 * player.performance
             matchrow = random.randint(0, (len(Constants.rows) - 1))
             player.participant.bluematch = Constants.rows[matchrow]['participant.code']
             if player.session.config['name'] == "victim1":

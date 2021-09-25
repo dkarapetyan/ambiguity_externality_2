@@ -40,7 +40,6 @@ class AttentionCheck(Page):
     def before_next_page(player: Player, timeout_happened):
         if player.q1 !=1:
             player.participant.failedattentioncheck += 1
-        print(player.participant.failedattentioncheck)
 
 
 class FailedCheck(Page):

@@ -31,11 +31,9 @@ def creating_session(subsession):
     import random
     for player in subsession.get_players():
         player.information = random.choice([True, False])
-        print('information is ', player.information)
+
 
 # PAGES
-
-
 class InfoTreatment(Page):
     @staticmethod
     def is_displayed(player: Player):

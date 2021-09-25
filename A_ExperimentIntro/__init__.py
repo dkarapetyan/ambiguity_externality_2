@@ -53,7 +53,7 @@ class Consent(Page):
     def before_next_page(player: Player, timeout_happened):
         if player.session.config['name'] == "victim2":
             player.participant.v2_treatment = random.choice([True, False])
-            print(player.participant.v2_treatment)
+
 
 class BlockDropouts(Page):
     @staticmethod
@@ -71,6 +71,7 @@ class BlueIntro2(Page):
     @staticmethod
     def is_displayed(player: Player):
         return player.session.config['name'] == "perp"
+
 
 class BlueIntro3(Page):
     @staticmethod
