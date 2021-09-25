@@ -17,7 +17,7 @@ class Constants(BaseConstants):
     num_rounds = 2
     letters_per_word = 5
     use_timeout = True
-    seconds_per_period = 30
+    seconds_per_period = 120
 
 
 class Subsession(BaseSubsession):
@@ -51,7 +51,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     p_ext_q2 = models.IntegerField(
-        label="You are randomly and anonymously paired with a Yellow player for each encryption task.",
+        label="You are randomly and anonymously paired with a Yellow player for each Encryption task.",
         choices=[[1, "True"], [2, "False"]],
         widget=widgets.RadioSelect
     )

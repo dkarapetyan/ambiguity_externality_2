@@ -14,7 +14,7 @@ class Constants(BaseConstants):
     num_rounds = 1
     letters_per_word = 5
     use_timeout = True
-    seconds_per_period = 30
+    seconds_per_period = 120
 
 
 class Subsession(BaseSubsession):
