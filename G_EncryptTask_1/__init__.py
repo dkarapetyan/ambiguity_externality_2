@@ -36,7 +36,7 @@ class Player(BasePlayer):
     earnings = models.CurrencyField(initial=0)
     bonus_question = models.CurrencyField(initial=0)
     final = models.CurrencyField(initial=0)
-    tokens = models.FloatField(initial=0)
+    tokens = models.FloatField()
     blue_ext = models.IntegerField()
     externality = models.IntegerField(initial=0)
     initial_ans = models.StringField(initial="")
@@ -321,12 +321,6 @@ class Complete(Page):
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
         if player.session.config['name'] == "perp":
-            if player.round_number == 1:
-                player.participant.performance1 = player.performance
-                player.participant.externality1 = 1-player.blue_ext
-            if player.round_number == 2:
-                player.participant.performance2 = player.performance
-                player.participant.externality2 = 1-player.blue_ext
             player.tokens = (2 - (player.blue_ext * 0.5)) * player.performance
 
         if "victim" in player.session.config['name']:
@@ -350,10 +344,12 @@ class Complete(Page):
             player.participant.externality = player.externality
             player.participant.payoff_final = player.tokens - player.externality
         else:
-            if player.blue_ext == 0:
-                player.participant.payoff_ext = player.tokens
-            else:
+            if player.blue_ext == 1:
                 player.participant.payoff_noext = player.tokens
+                player.participant.performance_noext = player.performance
+            else:
+                player.participant.payoff_ext = player.tokens
+                player.participant.performance_ext = player.performance
 
 
 class Earnings(Page):
