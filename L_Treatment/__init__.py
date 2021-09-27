@@ -28,7 +28,6 @@ class Player(BasePlayer):
 
 
 def creating_session(subsession):
-    import random
     for player in subsession.get_players():
         player.information = random.choice([True, False])
 
