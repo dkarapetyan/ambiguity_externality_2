@@ -132,7 +132,8 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     v2_c_q5 = models.IntegerField(
-        label="How many tokens will you lose for each word you encrypt correctly if the computer program assigned "
+        label="How many tokens will you lose for each word the Blue player encrypts correctly if the computer program "
+              "assigned "
               "the payoff scheme that could have decreased your earnings?",
         choices=[[1, "1"], [2, "2"], [3, "4"]],
         widget=widgets.RadioSelect
@@ -195,7 +196,7 @@ class EarningsInstructions_p_noext(Page):
                 player.initial_ans += str(values[field_name])
             if values[field_name] != solutions[field_name]:
                 player.num_wrong += 1
-                error_messages[field_name] = 'Wrong answer. Click "Back" to review the instructions and try again'
+                error_messages[field_name] = 'Wrong answer.'
 
         return error_messages
 
@@ -218,7 +219,7 @@ class EarningsInstructions_p_ext(Page):
                 player.initial_ans += str(values[field_name])
             if values[field_name] != solutions[field_name]:
                 player.num_wrong += 1
-                error_messages[field_name] = 'Wrong answer. Click "Back" to review the instructions and try again'
+                error_messages[field_name] = 'Wrong answer.'
 
         return error_messages
 
@@ -241,7 +242,7 @@ class EarningsInstructions_v1(Page):
                 player.initial_ans += str(values[field_name])
             if values[field_name] != solutions[field_name]:
                 player.num_wrong += 1
-                error_messages[field_name] = 'Wrong answer. Click "Back" to review the instructions and try again'
+                error_messages[field_name] = 'Wrong answer.'
 
         return error_messages
 
@@ -264,7 +265,7 @@ class EarningsInstructions_v2_c(Page):
                 player.initial_ans += str(values[field_name])
             if values[field_name] != solutions[field_name]:
                 player.num_wrong += 1
-                error_messages[field_name] = 'Wrong answer. Click "Back" to review the instructions and try again'
+                error_messages[field_name] = 'Wrong answer.'
 
         return error_messages
 
@@ -287,7 +288,7 @@ class EarningsInstructions_v2_t(Page):
                 player.initial_ans += str(values[field_name])
             if values[field_name] != solutions[field_name]:
                 player.num_wrong += 1
-                error_messages[field_name] = 'Wrong answer. Click "Back" to review the instructions and try again'
+                error_messages[field_name] = 'Wrong answer.'
 
         return error_messages
 
