@@ -5,8 +5,7 @@
 {{ block content }}
     <p>Thank you for your participation!</p>
     <p> {{ if player.participant.payoff_final < 0 }} Your earnings for the Encryption task are <b>{{ player.participant.payoff_final }} tokens</b>.
-        the task will be set at 0. However, since we do not allow negative token earnings, your
-        earnings for the task will be set to 0.
+        However, since we do not allow negative token earnings, your earnings for the task will be set to 0.
     {{else}}
         Your earnings for the Encryption task are <b>{{ player.participant.payoff_final }} tokens</b>.
         {{ endif }}</p>
