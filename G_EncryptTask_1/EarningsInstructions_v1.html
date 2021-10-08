@@ -1,4 +1,4 @@
-{% block title %}
+{{ extends "global/Page.html" }} {% block title %}
 {% endblock %}
 {% block scripts %}
     <script src="{% static 'back_button_v3/js/prev_next_button.js' %}"></script>
@@ -32,7 +32,7 @@
                     <h1 class="card-title font-weight-bold">Encryption Task Earnings Instructions</h1>
                 </div>
                 <p>
-                Both Blue and Yellow players engage in the Encryption task for their additional earnings. For each
+                    Both Blue and Yellow players engage in the Encryption task for their additional earnings. For each
                     word encrypted correctly, you will earn 2 tokens.
                     You are free to earn as many tokens as you can during the 6-minute Encryption task. You will earn
                     nothing for any word encrypted incorrectly.
@@ -49,9 +49,8 @@
                     <p>
                         As you are the Yellow player, your earnings are <b>positively affected</b> by your performance
                         in the Encryption task, <b>but negatively affected</b> by your matched Blue player’s
-                        performance in the Encryption task. Note that the Blue player was also told that their
-                        performance would negatively impact the earnings of the
-                        Yellow player before they began the Encryption task.
+                        performance. Note that the Blue player was told how much their
+                        performance would negatively impact your earnings before they began the Encryption task.
                     </p>
                     <p>
                         On the next screen, you will be provided with three different scenarios of what impact
@@ -66,20 +65,18 @@
                 </div>
                         <p>
                             Suppose both you and your matched Blue player were able to encrypt 20 words correctly.
-                            This means that your earnings from the Encryption task will be (20 × 2) = 40 minus (20 × 1) = 20  = 20 tokens.
-                            Hence, in this example, the matched Blue player would earn (20 × 2) = 40 tokens, while you would earn 20 tokens.
+                            Your earnings would be (20 × 2=) 40 minus (20 × 1=) 20 = 20 tokens, while the Blue player
+                            would earn (20 × 2=) 40 tokens.
                         </p>
                         <p>
-                            Now, suppose you were able to encrypt 20 words correctly, while your matched Blue player was able to
-                            encrypt 25 words correctly.  This means that your earnings from the Encryption task will be (20 × 2 =) 40 minus
-                            (25 × 1 =) 25 = 15 tokens.  Hence, in this example, the matched Blue player would earn (25 × 2 =) 50 tokens,
-                            while you would earn 15 tokens.
+                            Now, suppose you were able to encrypt 20 words correctly, while your matched Blue player was able
+                            to encrypt 25 words correctly. Your earnings would be (20 × 2=) 40 minus
+                            (25 × 1=) 25 = 15 tokens, while the Blue player would earn (25 × 2=) 50 tokens.
                         </p>
                         <p>
-                            As a last example, suppose you were able to encrypt 20 words correctly, while your matched Blue player
-                            was only able to encrypt 5 words correctly.  This means that your earnings from the Encryption task will be
-                            (20 × 2 =) 40 minus (5 × 1 =) 5 = 35 tokens.  Hence, in this example, the matched Blue player would earn
-                            (5 × 2 =) 10 tokens, while you would earn 35 tokens.
+                            As a last example, suppose you were able to encrypt 20 words correctly, while your
+                            matched Blue player was only able to encrypt 5 words correctly. Your earnings would be
+                            (20 × 2=) 40 minus (5 × 1=) 5 = 35 tokens, while the Blue player would earn (5 × 2=) 10 tokens.
                         </p>
                 <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Back</button>
                 <button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Next</button>

@@ -1,4 +1,4 @@
-{% block title %}
+{{ extends "global/Page.html" }} {% block title %}
 {% endblock %}
 {% block scripts %}
     <script src="{% static 'back_button_v3/js/prev_next_button.js' %}"></script>
@@ -7,6 +7,11 @@
     <link href="{% static 'back_button_v3/css/custom.css' %}" rel="stylesheet">
 {% endblock %}
 {% block content %}
+<style type="css">
+<!--
+ .tab { margin-left: 40px; }
+-->
+</style>
     <body>
         <!-- Tab navigation -->
         <ul class="nav nav-tabs fixed-top navbar-light bg-light justify-content-center " id="myTab" role="tablist">
@@ -34,7 +39,7 @@
                     <p>
                         Both Blue and Yellow players engage in the Encryption task for their additional earnings. For
                         each word <b>you (as the Yellow player)</b> encrypt correctly,
-                        you will <b>earn 2 tokens</b>. You are free to earn as many tokens as you can during the 6-minute encryption task.
+                        you will <b>earn 2 tokens</b>. You are free to earn as many tokens as you can during the 6-minute Encryption task.
                         You will earn nothing for any word encrypted incorrectly. Note that both Yellow and Blue
                         players face the same conditions <b>except for the payoff scheme</b>.
                     </p>
@@ -43,15 +48,15 @@
                         prior to their participation in the Encryption task:
                     </p>
                     <ul>
-                        <li>For each word encrypted correctly, <b>2 tokens are added</b> to their earnings but the
-                            <b>Yellow player loses 1 token</b>.</li>
-                        <li>For each word encrypted correctly, <b>1.5 tokens are added</b> to their earnings with <b>no effect
-                            on the Yellow player earnings</b> .</li>
+                        <li>For each word encrypted correctly, 2 tokens are added to the Blue player's
+                            earnings but <b>you lose 1 token</b>.</li>
+                        <li>For each word encrypted correctly, 1.5 tokens are added to the Blue player's
+                            earnings with <b>no effect on your earnings</b>.</li>
                     </ul>
                     <p>
                         The Yellow player, on the other hand, will only have one payoff scheme with no effect on the
                         matched Blue player’s earnings. As the Yellow player, your earnings are <b>positively affected</b> by your performance in the
-                        encryption task, but <b>might be negatively affected</b> by your matched Blue player’s
+                        Encryption task, but <b>might be negatively affected</b> by your matched Blue player’s
                         performance  <b>depending on the payoff choice made by the Blue player</b>. Note that the Blue player was also told how their matched Yellow
                         player’s earnings would be affected before they made their payoff choice.
                     </p>
@@ -66,37 +71,37 @@
                 <div class="card-header bg-transparent mainheader" >
                     <h1 class="card-title font-weight-bold">Encryption Task Earnings Examples</h1>
                 </div>
-                        <p>The following are earnings examples based on performance of both players and the Blue player’s payoff choice.</p>
+                        <p>The following are earnings examples based on performance of both players and your matched
+                            Blue player’s payoff choice.</p>
                         <p>
-                            Suppose both you and your matched Blue player were able to encrypt 20 words correctly.
-                            Now further suppose that your matched Blue player chose the payoff that would have no effect on your earnings.
-                            This means that your earnings from the Encryption task would be (20 x 2 =) 40 tokens.
-                            In this example, your matched Blue player would earn (20 x 1.5 =) 30 tokens, while you
-                            would earn 40 tokens.However,
-                            if your matched Blue player chose the payoff that would decrease your earnings, your
-                            earnings from the Encryption task would be (20 x 2 =)
-                            40 minus (20 x 1 =) 20  = 20 tokens.  Hence, in this example, the matched Blue player would
-                            earn (20 x 2 =) 40 tokens, while you would earn 20 tokens.
-                        </p>>
-                        <p> Now, suppose you were able to encrypt 20 words correctly, while your matched Blue player was able to encrypt 25 words correctly.
-                            Now further suppose that your matched Blue player chose the payoff that would have no
-                            effect on your earnings. This means that your earnings from the Encryption task would be
-                            (20 x 2 =) 40 tokens.
-                            In this example, your matched Blue player would earn (25 x 1.5 =) 37.5 tokens, while you
-                            would earn 40 tokens. However, if your
-                            matched Blue player chose the payoff that would decrease your earnings, your earnings from the Encryption task would be
-                            (20 x 2 =) 40 minus (25 x 1 =) 25 = 15 tokens.  Hence, in this example, the matched Blue
-                            player would earn (25 x 2 =) 50 tokens,
-                            while you would earn 15 tokens.
+                            <b>Suppose both you and your matched Blue player were able to encrypt 20 words correctly.</b>
+                            <ul>
+                                <li>If the Blue player chose the payoff that would have no effect on your earnings,
+                                your earnings would be (20 x 2=) 40 tokens, while the Blue would earn (20 x 1.5 =) 30 tokens.</li><br>
+                                <li>If the Blue player chose the payoff that would decrease your earnings, your
+                                earnings would be (20 x 2=) 40 minus (20 x 1=) 20 = 20 tokens, while the Blue player would
+                                earn (20 x 2=) 40 tokens.</li>
+                            </ul>
                         </p>
-                        <p> As a last example, suppose you were able to encrypt 20 words correctly, while your matched Blue player was only able to encrypt
-                            5 words correctly. Now further suppose that your matched Blue player chose the payoff that would have no effect on your earnings.
-                            This means that your earnings from the Encryption task would be (20 x 2 =) 40 tokens. In
-                            this example, your matched Blue player would earn (5 x 1.5 =) 7.5 tokens, while you would
-                            earn 40 tokens. However, if your matched Blue player chose the payoff that would decrease your earnings, your earnings from the Encryption task would be
-                            (20 x 2 =) 40 minus (5 x 1 =) 5 = 35 tokens.  Hence, in this example, the matched Blue player would earn (5 x 2 =) 10 tokens,
-                            while you would earn 35 tokens.
-                        </p>
+                        <p> <b>Now, suppose you were able to encrypt 20 words correctly, while your matched Blue
+                            player was able to encrypt 25 words correctly.</b>
+                          <ul>
+                              <li>If the Blue player chose the payoff that would have no
+                            effect on your earnings, your earnings would be (20 x 2=) 40 tokens, while the Blue player
+                                would earn (25 x 1.5=) 37.5 tokens.<br>
+                           <br> <li>If the Blue player chose the payoff that would decrease your earnings, your earnings would be
+                            (20 x 2 =) 40 minus (25 x 1=) 25 = 15 tokens, while the Blue player would earn (25 x 2=) 50 tokens.</li></ul>
+                            </p>
+                        <p> <b>As a last example, suppose you were able to encrypt 20 words correctly, while your matched Blue player was only able to encrypt
+                            5 words correctly.</b>
+                            <ul>
+                            <li>If the Blue player chose the payoff that would have no effect on your earnings, your
+                                earnings would be (20 x 2=) 40 tokens, while the Blue player would earn (5 x 1.5=)
+                                7.5 tokens.<br>
+                           <br> <li>If the Blue player chose the payoff that would decrease your earnings, your earnings would be
+                            (20 x 2=) 40 minus (5 x 1=) 5 = 35 tokens, while the Blue player would earn (5 x 2=) 10 tokens.</li>
+                </ul>
+                </p>
                 <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Back</button>
                 <button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Next</button>
             </div>

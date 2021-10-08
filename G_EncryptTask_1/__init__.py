@@ -61,7 +61,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     p_ext_q4 = models.IntegerField(
-        label="As the Blue player, how many tokens will you take away from the Yellow player for every word you encrypt correctly?",
+        label="As the Blue player, how many tokens will the Yellow player lose for every word you encrypt correctly?",
         choices=[[1, "1"], [2, "2"], [3, "4"]],
         widget=widgets.RadioSelect
     )
@@ -78,12 +78,13 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     p_noext_q3 = models.IntegerField(
-        label="As the Blue player, how many tokens will you take away from the Yellow player for every word you encrypt correctly?",
+        label="As the Blue player, how many tokens will the Yellow player lose for every word you encrypt correctly?",
         choices=[[1, "1"], [2, "0"], [3, "4"]],
         widget=widgets.RadioSelect
     )
     p_noext_q4 = models.IntegerField(
-        label="How many tokens will the Yellow player take away from you for every word encrypted correctly?",
+        label="How many tokens will you lose for for every word the Yellow player encrypts "
+              "correctly?",
         choices=[[1, "1"], [2, "0"], [3, "4"]],
         widget=widgets.RadioSelect
     )
@@ -105,7 +106,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     v1_q4 = models.IntegerField(
-        label="How many tokens will the Blue player take away from you for each word they encrypt correctly?",
+        label="How many tokens will you lose for each word the Blue player encrypted correctly?",
         choices=[[1, "1"], [2, "2"], [3, "4"]],
         widget=widgets.RadioSelect
     )
@@ -122,7 +123,8 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     v2_c_q3 = models.IntegerField(
-        label="The computer program will randomly assign a payoff scheme to your matched Blue player.",
+        label="The computer program will have randomly assigned one of two payoff schemes to your matched Blue "
+              "player.",
         choices=[[1, "True"], [2, "False"]],
         widget=widgets.RadioSelect
     )

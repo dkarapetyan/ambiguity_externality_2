@@ -1,4 +1,4 @@
-{{ block title }}
+{{ extends "global/Page.html" }} {{ block title }}
     Encryption Task Earnings Information
 {{ endblock }}
 {{ block content }}
@@ -6,13 +6,13 @@
 {{ if session.config.name == "victim1" }}
     {{ if player.information }}
         <p> Recall that your matched Blue player completed the same Encryption task as you, but that for every word the Blue player encrypted correctly,
-            1 token was taken away from your earnings.</p>
+            you lost 1 token from your earnings.</p>
         <p><b>Your matched Blue player decreased your additional earnings by {{
             player.participant.externality }} token(s) when exerting effort in the Encryption task.</b></p>
         <p> Therefore, your earnings for the Encryption task are {{ player.participant.payoff_final }} tokens.</p>
     {{ else }}
         <p> Recall that your matched Blue player completed the same Encryption task as you, but that for every word the Blue player encrypted correctly,
-            1 token was taken away from your earnings.</p>
+            you lost 1 token from your earnings.</p>
         <p> Your earnings for the Encryption task are {{ player.participant.payoff_final }} tokens.</p>
 
     {{ endif }}

@@ -1,7 +1,8 @@
-{{ block title }}
+{{ extends "global/Page.html" }} {{ block title }}
 Encryption Task Survey
 {{ endblock }}
 {{ block content }}
+
 <style>
     .buttonred {
         background-color: red;
@@ -15,11 +16,18 @@ Encryption Task Survey
         font-size: 16px;
 }
 </style>
+
 <p>Please answer the following questions with <b>careful consideration</b>.</p>
-{{ formfields }}
+    {{ formfields }}
+
 <div align="center">
 
 <button class="buttonred" value="true" name="submit">SUBMIT</button>
+</div>
+
+<div class="row">
+    <div class="col-md-12" align="right">
+    </div>
 </div>
 
 {{ endblock }}

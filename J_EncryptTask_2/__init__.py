@@ -58,7 +58,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     p2_q4 = models.IntegerField(
-        label="You will be paired with the same Yellow player you were paired with in the previous encryption task.",
+        label="You will be paired with the same Yellow player you were paired with in the previous Encryption task.",
         choices=[[1, "True"], [2, "False"]],
         widget=widgets.RadioSelect
     )

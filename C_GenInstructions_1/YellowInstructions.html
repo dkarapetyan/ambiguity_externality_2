@@ -1,4 +1,4 @@
-{{ block title }}
+{{ extends "global/Page.html" }} {{ block title }}
     General Instructions
 {{ endblock }}
 {{ block content }}
@@ -6,10 +6,9 @@
 <div>
     You will now participate in two tasks:<br>
     <ol>
-        <br><li>An <b>Encryption task</b>, where you will encrypt words into numbers. You will encrypt as many words as
-        you can within <b>6 minutes</b>.
-            Instructions for this task will be provided to you next. You will have a chance to practice the task for 2 minutes.
-            During the practice, you will not earn any money.
+        <br><li>An <b>Encryption task</b>, where you will encrypt a sequence of 5-letters ("words") into numbers. You will encrypt as many words as
+        you can within <b>6 minutes</b>. Instructions will be provided on the next screen. You will have a chance to practice
+        the task for 2 rounds, with each round lasting 1 minute. <b>During the practice, you will not earn any additional money</b>.
         </li><br>
         <li>
             A <b>Decision task</b>, with instructions for the task provided to you after the Encryption task has already

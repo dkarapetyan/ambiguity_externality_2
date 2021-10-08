@@ -1,4 +1,4 @@
-{% block title %}
+{{ extends "global/Page.html" }} {% block title %}
 {% endblock %}
 {% block scripts %}
     <script src="{% static 'back_button_v3/js/prev_next_button.js' %}"></script>
@@ -43,24 +43,24 @@
                         is also true: your matched Yellow player’s performance will not have any impact your earnings.
                     </p>
                     <p>
-                        Here are <b>three different scenarios</b> of what impact your performance and your matched Yellow player’s performance will have on
+                        Here are three different scenarios of what impact your performance and your matched Yellow player’s performance will have on
                         additional earnings:
                     </p>
                     <p>
-                        Suppose both you and your matched Yellow player were able to encrypt 20 words correctly. This means that your earnings from the
-                        Encryption task would be (20 x 1.5 =) 30 tokens. Hence, in this example, your matched Yellow player would earn (20 x 2 =) 40 tokens,
-                        while you would earn 30 tokens.
+                        <b>Suppose both you and your matched Yellow player were able to encrypt 20 words correctly.</b>
+                        Your earnings would be (20 x 1.5=) 30 tokens, while the Yellow player would earn (20 x 2=) 40
+                        tokens.
                     </p>
                     <p>
-                        Now, suppose you were able to encrypt 25 words correctly, while your matched Yellow player was able to encrypt 20 words correctly.
-                        This means that your earnings from the Encryption task would be (25 x 1.5 =) 37.5 tokens. Hence, in this example, the matched
-                        Yellow player would earn (20 x 2 =) 40 tokens, while you would earn 37.5 tokens.
+                        <b>Now, suppose you were able to encrypt 25 words correctly, while your matched Yellow
+                            player was able to encrypt 20 words correctly.</b> Your earnings
+                        would be (25 x 1.5=) 37.5 tokens, while the Yellow player would earn (20 x 2=) 40 tokens.
                     </p>
                     <p>
-                        As a last example, suppose you were only able to encrypt 5 words correctly, while your matched Yellow player was able to encrypt 20
-                        words correctly. This means that your earnings from the Encryption task would be (5 x 1.5 =) 7.5 tokens.
-                        Hence, in this example, the matched Yellow player would earn (20 x 2 =) 40 tokens, while you
-                        would earn 7.5 tokens.
+                        <b>As a last example, suppose you were only able to encrypt 5 words correctly, while your
+                            matched Yellow player was able to encrypt 20
+                            words correctly.</b> Your earnings would be (5 x 1.5=) 7.5 tokens, while the Yellow
+                        player would earn (20 x 2=) 40 tokens.
                     </p>
                 <button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Next</button>
             </div>
