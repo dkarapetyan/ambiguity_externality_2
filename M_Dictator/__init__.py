@@ -40,26 +40,16 @@ class Examples(Page):
         return "victim" in player.session.config['name']
 
 
-#class Offer(Page):
-    #def is_displayed(player: Player):
-        #return "victim" in player.session.config['name']
-
-    #form_model = 'player'
-    #form_fields = ['transfer']
-
-    #def before_next_page(player: Player, timeout_happened):
-        #if "victim" in player.session.config['name']:
-            #player.participant.dictator = 30 - player.transfer
-        #else:
-            #player.participant.dictator = 15
-
-class Offer2(Page):
+class Offer(Page):
     def is_displayed(player: Player):
         return "victim" in player.session.config['name']
 
+    form_model = 'player'
+    form_fields = ['transfer']
+
     def before_next_page(player: Player, timeout_happened):
         if "victim" in player.session.config['name']:
-            player.participant.dictator = 30 - player.tokens
+            player.participant.dictator = 30 - player.transfer
         else:
             player.participant.dictator = 15
 
@@ -68,4 +58,4 @@ class Results(Page):
     pass
 
 
-page_sequence = [Instructions, Examples, Offer2, Results]
+page_sequence = [Instructions, Examples, Offer, Results]
