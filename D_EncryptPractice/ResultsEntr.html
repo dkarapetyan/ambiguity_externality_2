@@ -10,6 +10,10 @@ Encryption Task Practice Results
     <p>Thank you for completing the Encryption task practice. You correctly encrypted {{ player.performance_entr }}
         word(s) in this round.</p>
 
+    {{ if player.round_number == 1}}
+        <p>You will now practice the task again for 1 minute.</p>
+    {{ endif }}
+
 
       <div class="row">
     <div class="col-md-12" align="right">

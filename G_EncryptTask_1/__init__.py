@@ -51,7 +51,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     p_ext_q2 = models.IntegerField(
-        label="You are randomly and anonymously paired with a Yellow player for each Encryption task.",
+        label="You are randomly and anonymously paired with a new Yellow player for each Encryption task.",
         choices=[[1, "True"], [2, "False"]],
         widget=widgets.RadioSelect
     )
