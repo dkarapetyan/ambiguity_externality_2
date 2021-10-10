@@ -61,7 +61,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     p_ext_q4 = models.IntegerField(
-        label="As the Blue player, how many tokens will the Yellow player lose for every word you encrypt correctly?",
+        label="How many tokens will the Yellow player lose for every word you encrypt correctly?",
         choices=[[1, "1"], [2, "2"], [3, "4"]],
         widget=widgets.RadioSelect
     )
@@ -78,7 +78,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     p_noext_q3 = models.IntegerField(
-        label="As the Blue player, how many tokens will the Yellow player lose for every word you encrypt correctly?",
+        label="How many tokens will the Yellow player lose for every word you encrypt correctly?",
         choices=[[1, "1"], [2, "0"], [3, "4"]],
         widget=widgets.RadioSelect
     )

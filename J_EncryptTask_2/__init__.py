@@ -41,14 +41,14 @@ class Player(BasePlayer):
 
     # Perpetrator with externality
     p2_q1 = models.IntegerField(
-        label="If you decided to earn 1.5 tokens per word encrypted correctly, how many tokens will you take away "
-              "from your matched Yellow player? ",
+        label="If you choose to earn 1.5 tokens per word encrypted correctly, how many tokens will your "
+              "matched Yellow player lose? ",
         choices=[[1, "1"], [2, "2"], [3, "0"]],
         widget=widgets.RadioSelect
     )
     p2_q2 = models.IntegerField(
-        label="If you decided to earn 2 tokens per word encrypted correctly, how many tokens will you take away "
-              "from your matched Yellow player? ",
+        label="If you choose to earn 2 tokens per word encrypted correctly, how many tokens will "
+              "your matched Yellow player lose? ",
         choices=[[1, "1"], [2, "2"], [3, "0"]],
         widget=widgets.RadioSelect
     )
