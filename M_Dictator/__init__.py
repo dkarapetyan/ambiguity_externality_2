@@ -23,9 +23,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
 
-    transfer = models.IntegerField(
-        doc="""Amount dictator transferred""",
-    )
+    transfer = models.IntegerField()
     endowment = models.IntegerField()
     tokens = models.IntegerField()
 

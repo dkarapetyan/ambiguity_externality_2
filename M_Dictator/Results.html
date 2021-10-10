@@ -1,16 +1,18 @@
-{{ extends "global/Page.html" }} {{ block title }}
-Decision Task Earnings
+{{ extends "global/Page.html" }}
+{{ block title }}
+    Decision Task Earnings
 {{ endblock }}
 
 {{ block content }}
 
 Your earnings from the Decision task are {{ player.participant.dictator }} tokens.
 
-         <div class="row">
+<div class="row">
     <div class="col-md-12" align="right">
         {% next_button %}
-        </div>
+    </div>
 </div>
+
 {{ endblock }}
 
 

@@ -1,11 +1,16 @@
-{{ extends "global/Page.html" }} {% block title %}
+{{ extends "global/Page.html" }}
+
+{% block title %}
 {% endblock %}
+
 {% block scripts %}
     <script src="{% static 'back_button_v3/js/prev_next_button.js' %}"></script>
 {% endblock %}
+
 {% block styles %}
     <link href="{% static 'back_button_v3/css/custom.css' %}" rel="stylesheet">
 {% endblock %}
+
 {% block content %}
     <body>
         <!-- Tab navigation -->
@@ -25,8 +30,8 @@
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane active show" id="part1" role="tabpanel" aria-labelledby="part1-tab">
                 <div class="card-header bg-transparent mainheader" >
-                    <h1 class="card-title font-weight-bold">Part {{ player.round_number }}: Encryption Task Earnings
-                        Instructions</h1>
+                    <h2 class="card-title font-weight-bold">Part {{ player.round_number }}: Encryption Task Earnings
+                        Instructions</h2>
                 </div>
                 <p>
                     Both Blue and Yellow players engage in the Encryption task for their additional earnings. For each
@@ -66,8 +71,8 @@
             </div>
             <div class="tab-pane" id="part3" role="tabpanel" aria-labelledby="part3-tab">
                 <div class="card-header bg-transparent mainheader" >
-                    <h1 class="card-title font-weight-bold">Part {{ player.round_number }}: Encryption Task
-                        Understanding Check</h1>
+                    <h2 class="card-title font-weight-bold">Part {{ player.round_number }}: Encryption Task
+                        Understanding Check</h2>
                 </div>
                 <br />
                 To check you have understood the instructions, please answer the following questions. You may go back
