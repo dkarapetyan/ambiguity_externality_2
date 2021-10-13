@@ -24,13 +24,11 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     earnings_guess = models.IntegerField(
         min=0,
-        max=64,
         label="1. We would like to know how much you think you would have earned if the Blue player’s performance had "
     "no impact on your earnings. Please express the amount in tokens, and type in numbers only:"
     )
     externality_guess = models.IntegerField(
         min=0,
-        max=32,
         label="2. Now, we would like to know how much you think your matched Blue player reduced your earnings by. "
               "Please express the amount in tokens, and type in numbers only:"
     )
