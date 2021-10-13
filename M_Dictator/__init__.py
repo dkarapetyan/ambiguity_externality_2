@@ -25,7 +25,7 @@ class Player(BasePlayer):
 
     transfer = models.IntegerField()
     endowment = models.IntegerField()
-    tokens = models.IntegerField()
+
 
 # PAGES
 class Instructions(Page):
