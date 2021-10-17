@@ -109,10 +109,6 @@ ROOMS = [
         name='Session_Y',
         display_name='Yellow Players I',
     ),
-    # dict(
-    #     name='Session_B',
-    #     display_name='Blue Players',
-    # ),
 ]
 
 
