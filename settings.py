@@ -106,12 +106,8 @@ SESSION_CONFIGS = [
 
 ROOMS = [
     dict(
-        name='Session_Y',
-        display_name='Victims',
-    ),
-    dict(
-        name='Session_B',
-        display_name='Perpetrators',
+        name='Session_Y2',
+        display_name='Yellow Player II'
     ),
 ]
 
