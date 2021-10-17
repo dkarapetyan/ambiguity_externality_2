@@ -84,7 +84,7 @@ SESSION_CONFIGS = [
         name='perp',
         display_name="Session B",
         num_demo_participants=1,
-        completionlink="https://www.prolific.co/",
+        completionlink="https://app.prolific.co/submissions/complete?cc=11D38787",
         app_sequence=['A_ExperimentIntro',
                       'B_Attention_1',
                       'C_GenInstructions_1',
