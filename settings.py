@@ -7,7 +7,7 @@ from os import environ
 
 SESSION_CONFIG_DEFAULTS = {
     'real_world_currency_per_point': 0.05,
-    'participation_fee': 3.75,
+    'participation_fee': 2.50,
     'doc': "",
 }
 PARTICIPANT_FIELDS = ['nettokens',
