@@ -171,65 +171,6 @@ class Player(BasePlayer):
 
 
 # PAGES
-class Hidden(Page):
-    timeout_seconds = 0
-
-    @staticmethod
-    def before_next_page(player: Player, timeout_happened):
-        if player.session.config['name'] == "perp":
-            if player.round_number == 1:
-                player.blue_ext = random.randint(0, 1)
-                player.participant.blue_ext = player.blue_ext
-            if player.round_number == 2:
-                player.blue_ext = 1-player.participant.blue_ext
-
-
-class EarningsInstructions_p_noext(Page):
-    form_model = "player"
-    form_fields = ["p_noext_q1", "p_noext_q2", "p_noext_q3", "p_noext_q4"]
-
-    @staticmethod
-    def error_message(player, values):
-        solutions = dict(p_noext_q1=1, p_noext_q2=1, p_noext_q3=2, p_noext_q4=2,)
-        error_messages = dict()
-
-        for field_name in solutions:
-            if len(player.initial_ans) < 6:
-                player.initial_ans += str(values[field_name])
-            if values[field_name] != solutions[field_name]:
-                player.num_wrong += 1
-                error_messages[field_name] = 'Wrong answer.'
-
-        return error_messages
-
-    @staticmethod
-    def is_displayed(player: Player):
-        return player.session.config['name'] == "perp" and player.blue_ext == 1
-
-
-class EarningsInstructions_p_ext(Page):
-    form_model = "player"
-    form_fields = ["p_ext_q1", "p_ext_q2", "p_ext_q3", "p_ext_q4"]
-
-    @staticmethod
-    def error_message(player, values):
-        solutions = dict(p_ext_q1=1, p_ext_q2=1, p_ext_q3=2, p_ext_q4=1, )
-        error_messages = dict()
-
-        for field_name in solutions:
-            if len(player.initial_ans) < 6:
-                player.initial_ans += str(values[field_name])
-            if values[field_name] != solutions[field_name]:
-                player.num_wrong += 1
-                error_messages[field_name] = 'Wrong answer.'
-
-        return error_messages
-
-    @staticmethod
-    def is_displayed(player: Player):
-        return player.session.config['name'] == "perp" and player.blue_ext == 0
-
-
 class EarningsInstructions_v1(Page):
     form_model = "player"
     form_fields = ["v1_q1", "v1_q2", "v1_q3", "v1_q4"]
@@ -250,7 +191,7 @@ class EarningsInstructions_v1(Page):
 
     @staticmethod
     def is_displayed(player: Player):
-        return player.session.config['name'] == "victim1"
+        return player.participant.name == "victim1"
 
 
 class EarningsInstructions_v2_c(Page):
@@ -273,7 +214,7 @@ class EarningsInstructions_v2_c(Page):
 
     @staticmethod
     def is_displayed(player: Player):
-        return player.session.config['name'] == "victim2" and not player.participant.v2_treatment
+        return player.participant.name == "victim2" and not player.participant.v2_treatment
 
 
 class EarningsInstructions_v2_t(Page):
@@ -296,7 +237,7 @@ class EarningsInstructions_v2_t(Page):
 
     @staticmethod
     def is_displayed(player: Player):
-        return player.session.config['name'] == "victim2" and player.participant.v2_treatment
+        return player.participant.name == "victim2" and player.participant.v2_treatment
 
 
 class BeginEncryptionTask(Page):
@@ -323,42 +264,31 @@ class Task(Page):
 class Complete(Page):
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
-        if player.session.config['name'] == "perp":
-            player.tokens = (2 - (player.blue_ext * 0.5)) * player.performance
-
-        if "victim" in player.session.config['name']:
-            player.tokens = 2 * player.performance
-            matchrow = random.randint(0, (len(Constants.rows) - 1))
-            player.participant.bluematch = Constants.rows[matchrow]['participant.code']
-            if player.session.config['name'] == "victim1":
-                if Constants.rows[matchrow]['G_EncryptTask_1.1.player.blue_ext'] == 0:
-                    player.externality = int(Constants.rows[matchrow]['G_EncryptTask_1.1.player.performance'])
-                else:
-                    player.externality = int(Constants.rows[matchrow]['G_EncryptTask_1.2.player.performance'])
+        player.tokens = 2 * player.performance
+        matchrow = random.randint(0, (len(Constants.rows) - 1))
+        player.participant.bluematch = Constants.rows[matchrow]['participant.code']
+        if player.participant.name == "victim1":
+            if Constants.rows[matchrow]['G_EncryptTask_1.1.player.blue_ext'] == 0:
+                player.externality = int(Constants.rows[matchrow]['G_EncryptTask_1.1.player.performance'])
             else:
-                if player.participant.v2_treatment:
-                    player.externality = int(Constants.rows[matchrow]['J_EncryptTask_2.1.player.performance'])*(1-int(Constants.rows[matchrow]['J_EncryptTask_2.1.player.ext_choice']))
-                    player.participant.externality_imposed = 1 - int(Constants.rows[matchrow]['J_EncryptTask_2.1.player.ext_choice'])
-                else:
-                    player.externality = int(Constants.rows[matchrow]['G_EncryptTask_1.1.player.performance'])*(
-                            1-int(Constants.rows[matchrow]['G_EncryptTask_1.1.player.blue_ext']))
-                    player.externality_imposed = 1-int(Constants.rows[matchrow]['G_EncryptTask_1.1.player.blue_ext'])
-                    player.participant.externality_imposed = 1-int(Constants.rows[matchrow]['G_EncryptTask_1.1.player.blue_ext'])
-            player.participant.externality = player.externality
-            player.participant.payoff_final = player.tokens - player.externality
+                player.externality = int(Constants.rows[matchrow]['G_EncryptTask_1.2.player.performance'])
         else:
-            if player.blue_ext == 1:
-                player.participant.payoff_noext = player.tokens
-                player.participant.performance_noext = player.performance
+            if player.participant.v2_treatment:
+                player.externality = int(Constants.rows[matchrow]['J_EncryptTask_2.1.player.performance'])*(1-int(Constants.rows[matchrow]['J_EncryptTask_2.1.player.ext_choice']))
+                player.participant.externality_imposed = 1 - int(Constants.rows[matchrow]['J_EncryptTask_2.1.player.ext_choice'])
             else:
-                player.participant.payoff_ext = player.tokens
-                player.participant.performance_ext = player.performance
+                player.externality = int(Constants.rows[matchrow]['G_EncryptTask_1.1.player.performance'])*(
+                        1-int(Constants.rows[matchrow]['G_EncryptTask_1.1.player.blue_ext']))
+                player.externality_imposed = 1-int(Constants.rows[matchrow]['G_EncryptTask_1.1.player.blue_ext'])
+                player.participant.externality_imposed = 1-int(Constants.rows[matchrow]['G_EncryptTask_1.1.player.blue_ext'])
+        player.participant.externality = player.externality
+        player.participant.payoff_final = player.tokens - player.externality
 
 
 class Earnings(Page):
     @staticmethod
     def app_after_this_page(player: Player, upcoming_apps):
-        if "victim" in player.session.config['name']:
+        if "victim" in player.participant.name:
             return "H_BeliefElicitation"
 
 
@@ -368,9 +298,6 @@ class GenInstructions_2(Page):
         return player.round_number==1
 
 page_sequence = [
-    Hidden,
-    EarningsInstructions_p_ext,
-    EarningsInstructions_p_noext,
     EarningsInstructions_v1,
     EarningsInstructions_v2_c,
     EarningsInstructions_v2_t,

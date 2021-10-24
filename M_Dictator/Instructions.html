@@ -3,7 +3,7 @@
 {{ endblock }}
 {{ block content }}
 
-{{ if session.config.name == "victim1" }}
+{{ if player.participant.name == "victim1" }}
 <p>Thank you for completing the Encryption task. Recall that in that task, you were matched with a Blue player whose
     payoff scheme decreased your earnings. We now turn to the Decision task.</p>
 <p>In this task, <b>you (as the Yellow player)</b> are matched with the <b>same Blue player</b> you were matched with
@@ -15,7 +15,7 @@
     of 10 tokens</b>. Positive and negative transfer examples are provided on the next screen.</p>
 {{ endif }}
 
-{{ if session.config.name == "victim2" }}
+{{ if player.participant.name == "victim2" }}
     {{ if player.participant.v2_treatment }}
 <p>Thank you for completing the Encryption task. Recall that in that task, you were matched with a Blue player who
     chose the payoff scheme that would {{ if player.participant.externality_imposed == 0 }}NOT {{ endif }}decrease your earnings. We now turn to the Decision task.</p>

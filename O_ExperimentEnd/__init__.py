@@ -39,19 +39,19 @@ class Hidden(Page):
 
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
-        print(player.session.config['name'])
-        if player.session.config['name'] == "perp":
+        print(player.participant.name)
+        if player.participant.name == "perp":
             player.participant.payoff_final = [player.participant.payoff_ext, player.participant.payoff_noext, player.participant.payoff_choice][player.participant.random_part-1]
             player.participant.performance_final = int([player.participant.performance_ext, player.participant.performance_noext, player.participant.performance3][player.participant.random_part-1])
             player.participant.payoff_pounds = cu(player.participant.payoff_final * 0.05)
-        if "victim" in player.session.config['name']:
+        if "victim" in player.participant.name:
             player.participant.payoff_total = cu((max(player.participant.payoff_final,
                                                       0) + player.participant.dictator) * 0.05)
 
 
 class YThanks(Page):
     def is_displayed(player: Player):
-        return "victim" in player.session.config['name']
+        return "victim" in player.participant.name
 
 
 class Redirect(Page):
@@ -60,7 +60,7 @@ class Redirect(Page):
 
 class BThanks(Page):
     def is_displayed(player: Player):
-        return player.session.config['name'] == "perp"
+        return player.participant.name == "perp"
 
 
 page_sequence = [Hidden, BThanks, YThanks, Redirect]

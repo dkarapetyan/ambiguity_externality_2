@@ -6,7 +6,7 @@
 
 {% block content %}
 
- {{ if session.config.name == "perp" }}
+ {{ if player.participant.name == "perp" }}
     <h2>Part {{ player.round_number }}: Encryption Task Earnings</h2>
     <p>Your earnings are {{ player.tokens }} tokens in this Encryption task.</p>
 

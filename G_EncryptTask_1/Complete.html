@@ -6,7 +6,7 @@
 
 {% block content %}
 
-    {{ if session.config.name == "perp" }}
+    {{ if player.participant.name == "perp" }}
     <h2>Part {{ player.round_number }}: Encryption Task Complete</h2>
     <br><p>You have completed Part {{ player.round_number }}, and your earnings will be displayed on the
     next page.</p>

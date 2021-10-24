@@ -43,7 +43,7 @@ class Player(BasePlayer):
 class ExtBeliefs_v1(Page):
     @staticmethod
     def is_displayed(player: Player):
-        return player.session.config['name'] == "victim1"
+        return player.participant.name == "victim1"
 
     form_model = "player"
     form_fields = ['earnings_guess', 'externality_guess']
@@ -56,7 +56,7 @@ class ExtBeliefs_v1(Page):
 class ExtBeliefs_v2_1(Page):
     @staticmethod
     def is_displayed(player: Player):
-        return player.session.config['name'] == "victim2"
+        return player.participant.name == "victim2"
     form_model = "player"
     form_fields = ['externality_bool']
 
@@ -69,7 +69,7 @@ class ExtBeliefs_v2_1(Page):
 class ExtBeliefs_v2_2(Page):
     @staticmethod
     def is_displayed(player: Player):
-        return player.session.config['name'] == "victim2" and player.externality_bool == 1
+        return player.participant.name == "victim2" and player.externality_bool == 1
     form_model = "player"
     form_fields = ['earnings_guess', 'externality_guess']
 

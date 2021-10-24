@@ -1,9 +1,9 @@
-{{ extends "global/Page.html" }} {{ block title }}
+{{ extends "global/Page.html" }}
+{{ block title }}
     Encryption Task Earnings Information
 {{ endblock }}
 {{ block content }}
-
-{{ if session.config.name == "victim1" }}
+{{ if player.participant.name == "victim1" }}
     {{ if player.information }}
         <p> Recall that your matched Blue player completed the same Encryption task as you, but that for every word the Blue player encrypted correctly,
             you lost 1 token from your earnings.</p>
@@ -18,7 +18,7 @@
     {{ endif }}
 {{ endif }}
 
-{{ if session.config.name == "victim2" }}
+{{ if player.participant.name == "victim2" }}
     {{ if player.participant.v2_treatment }}
         <p> Recall that your matched Blue player completed the same Encryption task as you, but that the Blue player had a choice to make between two payoff schemes
             prior to participating in the task.</p>

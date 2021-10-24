@@ -1,9 +1,5 @@
 from os import environ
 
-# if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
-# in SESSION_CONFIGS, except those that explicitly override it.
-# the session config can be accessed from methods in your apps as self.session.config,
-# e.g. self.session.config['participation_fee']
 
 SESSION_CONFIG_DEFAULTS = {
     'real_world_currency_per_point': 0.05,
@@ -33,12 +29,13 @@ PARTICIPANT_FIELDS = ['nettokens',
                       'blue_ext',
                       'payoff_total',
                       'payoff_pounds',
+                      'name'
                       ]
 
 SESSION_CONFIGS = [
    dict(
-        name='victim1',
-        display_name="Session Y1",
+        name="Yellow",
+        display_name="Yellow",
         num_demo_participants=1,
         completionlink="https://www.prolific.co",
         app_sequence=['A_ExperimentIntro',
@@ -49,8 +46,6 @@ SESSION_CONFIGS = [
                       'F_PlayerRoles',
                       'G_EncryptTask_1',
                       'H_BeliefElicitation',
-                      'I_GenInstructions_2',
-                      'J_EncryptTask_2',
                       'K_Attention_3',
                       'L_Treatment',
                       'M_Dictator',
@@ -58,50 +53,6 @@ SESSION_CONFIGS = [
                       'O_ExperimentEnd'
                       ],
     ),
-   #  dict(
-   #      name='victim2',
-   #      display_name="Session Y2",
-   #      num_demo_participants=1,
-   #      completionlink="https://www.prolific.co",
-   #      app_sequence=['A_ExperimentIntro',
-   #                    'B_Attention_1',
-   #                    'C_GenInstructions_1',
-   #                    'D_EncryptPractice',
-   #                    'E_Attention_2',
-   #                    'F_PlayerRoles',
-   #                    'G_EncryptTask_1',
-   #                    'H_BeliefElicitation',
-   #                    'I_GenInstructions_2',
-   #                    'J_EncryptTask_2',
-   #                    'K_Attention_3',
-   #                    'L_Treatment',
-   #                    'M_Dictator',
-   #                    'N_Survey',
-   #                    'O_ExperimentEnd'
-   #                    ],
-   #  ),
-   #  dict(
-   #      name='perp',
-   #      display_name="Session B",
-   #      num_demo_participants=1,
-   #      completionlink="https://www.prolific.co/",
-   #      app_sequence=['A_ExperimentIntro',
-   #                    'B_Attention_1',
-   #                    'C_GenInstructions_1',
-   #                    'D_EncryptPractice',
-   #                    'E_Attention_2',
-   #                    'F_PlayerRoles',
-   #                    'G_EncryptTask_1',
-   #                    'H_BeliefElicitation',
-   #                    'I_GenInstructions_2',
-   #                    'J_EncryptTask_2',
-   #                    'K_Attention_3',
-   #                    'L_Treatment',
-   #                    'M_Dictator',
-   #                    'N_Survey',
-   #                    'O_ExperimentEnd'
-   #                    ],
-   #  ),
 ]
 
 ROOMS = [

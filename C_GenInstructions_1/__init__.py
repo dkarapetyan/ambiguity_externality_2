@@ -29,13 +29,13 @@ class Player(BasePlayer):
 class BlueInstructions(Page):
     @staticmethod
     def is_displayed(player: Player):
-        return player.session.config['name'] == "perp"
+        return player.participant.name == "perp"
 
 
 class YellowInstructions(Page):
     @staticmethod
     def is_displayed(player: Player):
-        return "victim" in player.session.config['name']
+        return "victim" in player.participant.name
 
 
 page_sequence = [BlueInstructions, YellowInstructions]

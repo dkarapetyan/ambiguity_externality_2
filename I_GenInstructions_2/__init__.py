@@ -28,7 +28,7 @@ class Player(BasePlayer):
 # PAGES
 class BlueInstructions_2(Page):
     def is_displayed(player: Player):
-        return player.session.config['name'] == "perp"
+        return player.participant.name == "perp"
 
 
 page_sequence = [BlueInstructions_2]

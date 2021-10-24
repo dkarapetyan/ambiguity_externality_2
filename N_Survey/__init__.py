@@ -57,13 +57,13 @@ class YellowSurvey(Page):
     form_fields = ['fairness1', 'enjoyment']
     @staticmethod
     def is_displayed(player: Player):
-        return "victim" in player.session.config['name']
+        return "victim" in player.participant.name
 
 class BlueSurvey(Page):
     form_model = 'player'
     form_fields = ['fairness1', 'fairness2', 'enjoyment']
     @staticmethod
     def is_displayed(player: Player):
-        return player.session.config['name'] == "perp"
+        return player.participant.name == "perp"
 
 page_sequence = [YellowSurvey, BlueSurvey]

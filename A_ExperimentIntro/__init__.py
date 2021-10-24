@@ -31,6 +31,7 @@ class Player(BasePlayer):
         ]
     )
 
+
 # PAGES
 
 
@@ -51,7 +52,9 @@ class Consent(Page):
     form_fields = ['consent']
 
     def before_next_page(player: Player, timeout_happened):
-        if player.session.config['name'] == "victim2":
+        player.participant.name = random.choice(["victim1", "victim2"])
+        print(player.participant.name)
+        if player.participant.name == "victim2":
             player.participant.v2_treatment = random.choice([True, False])
 
 
@@ -61,33 +64,12 @@ class BlockDropouts(Page):
         return player.consent == 2
 
 
-class BlueIntro(Page):
-    @staticmethod
-    def is_displayed(player: Player):
-        return player.session.config['name'] == "perp"
-
-
-class BlueIntro2(Page):
-    @staticmethod
-    def is_displayed(player: Player):
-        return player.session.config['name'] == "perp"
-
-
-class BlueIntro3(Page):
-    @staticmethod
-    def is_displayed(player: Player):
-        return player.session.config['name'] == "perp"
-
 class Yellow1Intro(Page):
-    @staticmethod
-    def is_displayed(player: Player):
-        return player.session.config['name'] != "perp"
+    pass
 
 
 class Yellow2Intro(Page):
-    @staticmethod
-    def is_displayed(player: Player):
-        return player.session.config['name'] != "perp"
+    pass
 
 
-page_sequence = [Welcome, Consent, BlockDropouts, BlueIntro, BlueIntro2, BlueIntro3, Yellow1Intro, Yellow2Intro]
+page_sequence = [Welcome, Consent, BlockDropouts, Yellow1Intro, Yellow2Intro]

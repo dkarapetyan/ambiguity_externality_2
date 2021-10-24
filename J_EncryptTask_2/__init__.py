@@ -129,7 +129,7 @@ class Complete(Page):
 class Earnings(Page):
     @staticmethod
     def app_after_this_page(player: Player, upcoming_apps):
-        if player.session.config['name'] == 'perp':
+        if player.participant.name == 'perp':
             return "N_Survey"
 
 

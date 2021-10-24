@@ -30,23 +30,23 @@ class Player(BasePlayer):
 # PAGES
 class Instructions(Page):
     def is_displayed(player: Player):
-        return "victim" in player.session.config['name']
+        return "victim" in player.participant.name
 
 
 class Examples(Page):
     def is_displayed(player: Player):
-        return "victim" in player.session.config['name']
+        return "victim" in player.participant.name
 
 
 class Offer(Page):
     def is_displayed(player: Player):
-        return "victim" in player.session.config['name']
+        return "victim" in player.participant.name
 
     form_model = 'player'
     form_fields = ['transfer']
 
     def before_next_page(player: Player, timeout_happened):
-        if "victim" in player.session.config['name']:
+        if "victim" in player.participant.name:
             player.participant.dictator = 20 - player.transfer
         else:
             player.participant.dictator = 10
