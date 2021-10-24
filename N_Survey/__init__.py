@@ -22,7 +22,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    fairness = models.IntegerField(
+    fairness1 = models.IntegerField(
         choices=[
             [-2, 'Very unfair'],
             [-1, 'Somewhat unfair'],
@@ -31,7 +31,15 @@ class Player(BasePlayer):
             [2, 'Very fair']
         ],
     )
-
+    fairness2 = models.IntegerField(
+        choices=[
+            [-2, 'Very unfair'],
+            [-1, 'Somewhat unfair'],
+            [0, 'Neither fair nor unfair'],
+            [1, 'Somewhat fair'],
+            [2, 'Very fair']
+        ],
+    )
     enjoyment = models.IntegerField(
         choices=[
             [-2, 'Very unenjoyable'],
@@ -45,11 +53,15 @@ class Player(BasePlayer):
 
 # PAGES
 class YellowSurvey(Page):
+    form_model = 'player'
+    form_fields = ['fairness1', 'enjoyment']
     @staticmethod
     def is_displayed(player: Player):
         return "victim" in player.session.config['name']
 
 class BlueSurvey(Page):
+    form_model = 'player'
+    form_fields = ['fairness1', 'fairness2', 'enjoyment']
     @staticmethod
     def is_displayed(player: Player):
         return player.session.config['name'] == "perp"
