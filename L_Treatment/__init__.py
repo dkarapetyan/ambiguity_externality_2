@@ -30,6 +30,7 @@ class Player(BasePlayer):
 def creating_session(subsession):
     for player in subsession.get_players():
         player.information = random.choice([True, False])
+        print(player.information)
 
 
 # PAGES
