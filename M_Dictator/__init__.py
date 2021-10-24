@@ -47,9 +47,9 @@ class Offer(Page):
 
     def before_next_page(player: Player, timeout_happened):
         if "victim" in player.session.config['name']:
-            player.participant.dictator = 30 - player.transfer
+            player.participant.dictator = 20 - player.transfer
         else:
-            player.participant.dictator = 15
+            player.participant.dictator = 10
 
 
 class Results(Page):

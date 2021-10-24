@@ -81,16 +81,16 @@
 
     <p>Please choose the transfer amount:</p>
     <div class="range">
-        <input id="slider" class="slider" type="range" min="-15" max="30" value="0" step="1" name="transfer">
+        <input id="slider" class="slider" type="range" min="-10" max="20" value="0" step="1" name="transfer">
         <div class="sliderticks">
-            {{ for x in range(-15,30,5) }}
+            {{ for x in range(-10,20,5) }}
                 <p><br>{{ x }}</p>
                 <p><br></p>
                 <p><br></p>
                 <p><br></p>
                 <p><br></p>
             {{ endfor }}
-                <p><br>30</p>
+                <p><br>20</p>
         </div>
     </div>
     <br><br>
@@ -108,9 +108,9 @@
     var output = document.getElementById("output");
     var earnings = document.getElementById("earnings");
     output.innerHTML = (slider.value-0).toFixed(0);
-    earnings.innerHTML = (30-slider.value).toFixed(0);
+    earnings.innerHTML = (20-slider.value).toFixed(0);
     slider.oninput = function () {
-        earnings.innerHTML = (30-this.value).toFixed(0)
+        earnings.innerHTML = (20-this.value).toFixed(0)
         output.innerHTML = (this.value-0).toFixed(0);
     }
 </script>
