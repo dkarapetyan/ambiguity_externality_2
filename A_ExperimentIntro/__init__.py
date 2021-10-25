@@ -52,7 +52,7 @@ class Consent(Page):
     form_fields = ['consent']
 
     def before_next_page(player: Player, timeout_happened):
-        player.participant.name = random.choice(["victim1", "victim2"])
+        player.participant.name = "victim1"
         print(player.participant.name)
         if player.participant.name == "victim2":
             player.participant.v2_treatment = random.choice([True, False])
