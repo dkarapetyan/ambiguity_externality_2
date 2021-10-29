@@ -37,7 +37,7 @@ SESSION_CONFIGS = [
         name="Yellow",
         display_name="Yellow",
         num_demo_participants=1,
-        completionlink="https://app.prolific.co/submissions/complete?cc=82FCF594",
+        completionlink="https://app.prolific.co/submissions/complete?cc=717C4D98",
         app_sequence=['A_ExperimentIntro',
                       'B_Attention_1',
                       'C_GenInstructions_1',
